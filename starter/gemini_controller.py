@@ -11,7 +11,7 @@ import requests
 class GeminiController:
     """Translate Gemini function calls into run_agent's normalized actions."""
     def __init__(self, api_key: str | None = None, model: str | None = None,
-                 fallback_model: str | None = None, timeout: tuple[int, int] = (5, 40)):
+                 fallback_model: str | None = None, timeout: tuple[int, int] = (5, 12)):
         self.api_key = api_key or os.getenv("GEMINI_API_KEY")
         if not self.api_key:
             raise RuntimeError("GEMINI_API_KEY is missing; configure it in the local, git-ignored .env")
@@ -74,7 +74,7 @@ class GeminiController:
             "generationConfig": {
                 "temperature": 0.1,
                 "maxOutputTokens": 700,
-                "thinkingConfig": {"thinkingLevel": "low"},
+                "thinkingConfig": {"thinkingLevel": "minimal"},
             },
         }
         used = self.model
