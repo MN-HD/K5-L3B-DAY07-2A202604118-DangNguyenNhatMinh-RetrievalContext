@@ -43,11 +43,20 @@ def run_agent(question: str, controller: Controller, retriever: Retriever, *,
     chunks: dict[str, dict[str, Any]] = {}
     candidates: list[dict[str, Any]] = []
     events: list[dict[str, Any]] = []
-    for _ in range(max_searches + 1):
+    search_limit_prompted = False
+    for _ in range(max_searches + 2):
         action = controller.decide(question, history)
         if action.get('action') == 'search':
-            if sum(e['event'] == 'search' for e in events) >= max_searches:
-                return {'status': 'abstain', 'answer': 'Không đủ bằng chứng để trả lời.', 'citations': [], 'events': events + [{'event': 'search_limit'}]}
+            searches_used = sum(e['event'] == 'search' for e in events)
+            if searches_used >= max_searches:
+                if search_limit_prompted:
+                    return {'status': 'abstain', 'answer': 'Không đủ bằng chứng để trả lời.', 'citations': [], 'events': events + [{'event': 'search_limit'}]}
+                # Give the model one final, tool-disabled decision using the context it already has.
+                latest = history[-1] if history else {'tool': 'search', 'queries': [], 'context': '', 'context_ids': []}
+                history = [{**latest, 'search_limit_reached': True}]
+                events.append({'event': 'search_limit_reached'})
+                search_limit_prompted = True
+                continue
             query = action.get('query')
             if not isinstance(query, str) or not query.strip():
                 raise ValueError('search query phải là chuỗi không rỗng')
