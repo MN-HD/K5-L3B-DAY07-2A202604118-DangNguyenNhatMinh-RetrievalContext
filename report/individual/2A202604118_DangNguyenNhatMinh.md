@@ -86,6 +86,20 @@ The live agent was evaluated on all seven held-out test cases using `gemini-3.5-
 | U03 2026 language market share | Unanswerable | Correct abstention; 1 search; 2.33 s | Correct abstention; 1 search; 4.31 s |
 | U04 Vietnam Rust job vacancies | Unanswerable | Correct abstention; 1 search; 2.61 s | Correct abstention; 1 search; 3.17 s |
 
+### Per-question human review and citation audit
+
+| Test ID | Dense answer grade | Dense citation review | Hybrid answer grade | Hybrid citation review |
+|---|---:|---|---:|---|
+| Q21 | 1/2 | Cited workspace tree shows root `Cargo.lock` and `target`, but does not explicitly define the member-package sharing rule. | 2/2 | Directly cites the definition that workspace packages share the same `Cargo.lock` and output directory. |
+| Q22 | 2/2 | Directly supports runtime borrowing-rule enforcement and panic on violation. | 2/2 | Direct support for runtime enforcement and panic behavior. |
+| Q23 | 2/2 | Directly supports one OS thread per language thread. | 2/2 | Directly supports the 1:1 thread model. |
+| Q24 | 2/2 | Directly supports irrefutable patterns in function parameters, `let`, and `for`. | 2/2 | Directly supports the same rule. |
+| Q25 | 2/2 | Directly defines macros as code that writes code and supports the added explanation. | 2/2 | Directly defines metaprogramming as code that writes code. |
+| U03 | Correct abstention | No citation; no unsupported market-share claim. | Correct abstention | No citation; no unsupported market-share claim. |
+| U04 | Correct abstention | No citation; no unsupported job-vacancy claim. | Correct abstention | No citation; no unsupported job-vacancy claim. |
+
+All ten answer citations (five per configuration) were inspected against the actual passage text. Citation support: **10/10**. Answer citation coverage: **10/10**. Both agents correctly abstained on **2/2** unanswerable questions. The dense Q21 answer receives only 1/2 because its cited example is suggestive but does not state the general sharing rule; hybrid Q21 is fully supported by the direct definition.
+
 The five answerable responses from each configuration were manually compared with the benchmark expected answers and their cited source passages. Q22 identifies runtime borrowing-rule enforcement; Q23 identifies Rust's 1:1 operating-system-thread model; Q24 identifies irrefutable patterns; and Q25 defines metaprogramming as code that writes code. Hybrid Q21 directly cites the definition that workspace packages share the same `Cargo.lock` and output directory. Dense Q21 cites a workspace file-tree example showing one root `Cargo.lock` and `target` directory, but does not explicitly state the package-sharing rule; it therefore receives a partial answer grade of 1 rather than 2. Both configurations abstained on U03 and U04.
 
 **Observed aggregate (test cases):**
