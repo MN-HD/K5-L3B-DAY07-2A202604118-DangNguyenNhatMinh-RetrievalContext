@@ -41,7 +41,7 @@ class BaselineTests(unittest.TestCase):
     def test_evidence_matches_across_markdown_line_wraps(self):
         wrapped = chunk('wrapped', 'You can make them mutable by\nadding `mut` in front of the variable name.')
         gold = [{'source_id': 'doc', 'page': 1,
-                 'evidence': 'you can make them mutable by adding `mut` in front of the variable name'}]
+                 'evidence': 'You can make them mutable by adding `mut` in front of the variable name'}]
         self.assertTrue(hit(wrapped, gold))
 
     def test_budget_dedup_and_empty_query(self):
