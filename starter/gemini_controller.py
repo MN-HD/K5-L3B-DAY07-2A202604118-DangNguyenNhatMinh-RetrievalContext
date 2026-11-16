@@ -11,7 +11,7 @@ import requests
 class GeminiController:
     """Translate Gemini function calls into run_agent's normalized actions."""
     def __init__(self, api_key: str | None = None, model: str | None = None,
-                 fallback_model: str | None = None, timeout: tuple[int, int] = (5, 18)):
+                 fallback_model: str | None = None, timeout: tuple[int, int] = (5, 40)):
         self.api_key = api_key or os.getenv("GEMINI_API_KEY")
         if not self.api_key:
             raise RuntimeError("GEMINI_API_KEY is missing; configure it in the local, git-ignored .env")
@@ -71,11 +71,29 @@ class GeminiController:
                 },
             }]}],
             "toolConfig": {"functionCallingConfig": {"mode": "AUTO"}},
-            "generationConfig": {"temperature": 0.1, "maxOutputTokens": 700},
+            "generationConfig": {
+                "temperature": 0.1,
+                "maxOutputTokens": 700,
+                "thinkingConfig": {"thinkingLevel": "low"},
+            },
         }
-        response = self._post(self.model, body)
         used = self.model
-        if response.status_code == 503 and self.fallback_model and self.fallback_model != self.model:
+        try:
+            response = self._post(self.model, body)
+        except (requests.exceptions.ReadTimeout, requests.exceptions.ConnectionError) as first_error:
+            if not self.fallback_model or self.fallback_model == self.model:
+                raise RuntimeError(f"Gemini primary request failed ({type(first_error).__name__}): {first_error}") from first_error
+            try:
+                response = self._post(self.fallback_model, body)
+                used = self.fallback_model
+            except requests.exceptions.RequestException as fallback_error:
+                raise RuntimeError(
+                    f"Gemini primary and fallback requests failed: "
+                    f"{type(first_error).__name__} on {self.model}; "
+                    f"{type(fallback_error).__name__} on {self.fallback_model}: {fallback_error}"
+                ) from fallback_error
+
+        if response.status_code == 503 and self.fallback_model and self.fallback_model != used:
             response = self._post(self.fallback_model, body)
             used = self.fallback_model
         if not response.ok:
