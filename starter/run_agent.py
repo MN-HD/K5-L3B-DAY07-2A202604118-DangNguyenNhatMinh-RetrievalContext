@@ -88,7 +88,7 @@ def main() -> None:
     outdir = RESULTS / "agent-runs" / args.method
     outdir.mkdir(parents=True, exist_ok=True)
     outfile = outdir / f"{case['id']}.json"
-    outfile.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+    outfile.write_text(json.dumps(result, ensure_ascii=False, indent=2) + chr(10), encoding="utf-8")
     print(json.dumps({
         "query_id": case["id"], "status": result["status"],
         "answer": result["answer"], "citations": result["citations"],
