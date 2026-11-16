@@ -47,7 +47,7 @@ class BaselineTests(unittest.TestCase):
     def test_evidence_matches_without_markdown_emphasis(self):
         wrapped = chunk(
             'formatted',
-            'Keep in mind that Rust is a _statically typed_ language, which means that it\\nmust know the types of all variables at compile time.'
+            'Keep in mind that Rust is a _statically typed_ language, which means that it\nmust know the types of all variables at compile time.'
         )
         gold = [{'source_id': 'doc', 'page': 1,
                  'evidence': 'Keep in mind that Rust is a statically typed language, which means that it must know the types of all variables at compile time.'}]
