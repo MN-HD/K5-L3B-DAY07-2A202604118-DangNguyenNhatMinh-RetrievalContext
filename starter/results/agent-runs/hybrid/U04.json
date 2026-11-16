@@ -1,0 +1,217 @@
+{
+  "status": "abstain",
+  "answer": "Không đủ bằng chứng để trả lời.",
+  "citations": [],
+  "events": [
+    {
+      "event": "search",
+      "query": "Vietnam October 2026 Rust job vacancies",
+      "filter": null,
+      "results": [
+        {
+          "id": "paragraph-rust-book-ch12-05-working-with-environment-variables-685-1397-916a1464430d",
+          "text": "We first add a new `search_case_insensitive` function to the `minigrep` library\nthat will be called when the environment variable has a value. We’ll continue\nto follow the TDD process, so the first step is again to write a failing test.\nWe’ll add a new test for the new `search_case_insensitive` function and rename\nour old test from `one_result` to `case_sensitive` to clarify the differences\nbetween the two tests, as shown in Listing 12-20.\n\n<Listing number=\"12-20\" file-name=\"src/lib.rs\" caption=\"Adding a new failing test for the case-insensitive function we’re about to add\">\n\n```rust,ignore,does_not_compile\n{{#rustdoc_include ../listings/ch12-an-io-project/listing-12-20/src/lib.rs:here}}\n```\n\n</Listing>",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch12-05-working-with-environment-variables.md",
+          "page": "rust-book-ch12-05-working-with-environment-variables",
+          "metadata": {
+            "page_id": "rust-book-ch12-05-working-with-environment-variables",
+            "section": "Working with Environment Variables",
+            "unit_id": "rust-book-ch12-05-working-with-environment-variables",
+            "headings": [],
+            "chapter_id": "ch12",
+            "block_types": [
+              "paragraph",
+              "code"
+            ],
+            "chunk_index": 2,
+            "location_id": "rust-book-ch12-05-working-with-environment-variables",
+            "source_path": "starter/data/rust-book/src/ch12-05-working-with-environment-variables.md",
+            "chapter_title": "An I/O Project: Building a Command Line Program",
+            "section_title": "Working with Environment Variables",
+            "content_sha256": "bb80a3191fcdcfad2cb50f6ed10b6e52784fb51da2f86a3758664d2a8f4292a2",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 9413,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 712,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 1397,
+            "chunk_offset_start_chars": 685,
+            "normalized_character_count": 9413
+          },
+          "score": 0.01639344262295082,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 1
+        },
+        {
+          "id": "paragraph-rust-book-ch21-02-multithreaded-29732-30731-7aa99733e2dc",
+          "text": "```console\n$ cargo run\n   Compiling hello v0.1.0 (file:///projects/hello)\nwarning: field `workers` is never read\n --> src/lib.rs:7:5\n  |\n6 | pub struct ThreadPool {\n  |            ---------- field in this struct\n7 |     workers: Vec<Worker>,\n  |     ^^^^^^^\n  |\n  = note: `#[warn(dead_code)]` on by default\n\nwarning: fields `id` and `thread` are never read\n  --> src/lib.rs:48:5\n   |\n47 | struct Worker {\n   |        ------ fields in this struct\n48 |     id: usize,\n   |     ^^\n49 |     thread: thread::JoinHandle<()>,\n   |     ^^^^^^\n\nwarning: `hello` (lib) generated 2 warnings\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 4.91s\n     Running `target/debug/hello`\nWorker 0 got a job; executing.\nWorker 2 got a job; executing.\nWorker 1 got a job; executing.\nWorker 3 got a job; executing.\nWorker 0 got a job; executing.\nWorker 2 got a job; executing.\nWorker 1 got a job; executing.\nWorker 3 got a job; executing.\nWorker 0 got a job; executing.\nWorker 2 got a job; executing.\n```",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch21-02-multithreaded.md",
+          "page": "rust-book-ch21-02-multithreaded",
+          "metadata": {
+            "page_id": "rust-book-ch21-02-multithreaded",
+            "section": "From a Single-Threaded to a Multithreaded Server",
+            "unit_id": "rust-book-ch21-02-multithreaded",
+            "headings": [],
+            "chapter_id": "ch21",
+            "block_types": [
+              "code"
+            ],
+            "chunk_index": 37,
+            "location_id": "rust-book-ch21-02-multithreaded",
+            "source_path": "starter/data/rust-book/src/ch21-02-multithreaded.md",
+            "chapter_title": "Final Project: Building a Multithreaded Web Server",
+            "section_title": "From a Single-Threaded to a Multithreaded Server",
+            "content_sha256": "ea0592131a604ebb0fd522e0e3b2c3687fe8b821b966b33ba3cd1d05b0b554b2",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 33265,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 999,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 30731,
+            "chunk_offset_start_chars": 29732,
+            "normalized_character_count": 33265
+          },
+          "score": 0.01639344262295082,
+          "strategy": "hybrid_rrf",
+          "lexical_rank": 1
+        },
+        {
+          "id": "paragraph-rust-book-ch17-05-traits-for-async-5018-5751-2a1c8c9a627e",
+          "text": "<a id=\"pinning-and-the-pin-and-unpin-traits\"></a>\n<a id=\"the-pin-and-unpin-traits\"></a>\n\n### The `Pin` Type and the `Unpin` Trait\n\nBack in Listing 17-13, we used the `trpl::join!` macro to await three\nfutures. However, it’s common to have a collection such as a vector containing\nsome number of futures that won’t be known until runtime. Let’s change Listing\n17-13 to the code in Listing 17-23 that puts the three futures into a vector\nand calls the `trpl::join_all` function instead, which won’t compile yet.\n\n<Listing number=\"17-23\" caption=\"Awaiting futures in a collection\"  file-name=\"src/main.rs\">\n\n```rust,ignore,does_not_compile\n{{#rustdoc_include ../listings/ch17-async-await/listing-17-23/src/main.rs:here}}\n```\n\n</Listing>",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch17-05-traits-for-async.md",
+          "page": "rust-book-ch17-05-traits-for-async",
+          "metadata": {
+            "page_id": "rust-book-ch17-05-traits-for-async",
+            "section": "A Closer Look at the Traits for Async",
+            "unit_id": "rust-book-ch17-05-traits-for-async",
+            "headings": [
+              "The `Pin` Type and the `Unpin` Trait"
+            ],
+            "chapter_id": "ch17",
+            "block_types": [
+              "paragraph",
+              "heading_or_text",
+              "code"
+            ],
+            "chunk_index": 7,
+            "location_id": "rust-book-ch17-05-traits-for-async",
+            "source_path": "starter/data/rust-book/src/ch17-05-traits-for-async.md",
+            "chapter_title": "Fundamentals of Asynchronous Programming: Async, Await, Futures, and Streams",
+            "section_title": "A Closer Look at the Traits for Async",
+            "content_sha256": "79dc30d1073fdaa4e728a010ba280cb81d06f922ee1065ff36c071f14127dee7",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 27043,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 733,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 5751,
+            "chunk_offset_start_chars": 5018,
+            "normalized_character_count": 27043
+          },
+          "score": 0.016129032258064516,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 2
+        },
+        {
+          "id": "paragraph-rust-book-ch21-02-multithreaded-29256-29730-a6235bb63d58",
+          "text": "The call to `recv` blocks, so if there is no job yet, the current thread will\nwait until a job becomes available. The `Mutex<T>` ensures that only one\n`Worker` thread at a time is trying to request a job.\n\nOur thread pool is now in a working state! Give it a `cargo run` and make some\nrequests:\n\n<!-- manual-regeneration\ncd listings/ch21-web-server/listing-21-20\ncargo run\nmake some requests to 127.0.0.1:7878\nCan't automate because the output depends on making requests\n-->",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch21-02-multithreaded.md",
+          "page": "rust-book-ch21-02-multithreaded",
+          "metadata": {
+            "page_id": "rust-book-ch21-02-multithreaded",
+            "section": "From a Single-Threaded to a Multithreaded Server",
+            "unit_id": "rust-book-ch21-02-multithreaded",
+            "headings": [],
+            "chapter_id": "ch21",
+            "block_types": [
+              "paragraph"
+            ],
+            "chunk_index": 36,
+            "location_id": "rust-book-ch21-02-multithreaded",
+            "source_path": "starter/data/rust-book/src/ch21-02-multithreaded.md",
+            "chapter_title": "Final Project: Building a Multithreaded Web Server",
+            "section_title": "From a Single-Threaded to a Multithreaded Server",
+            "content_sha256": "ea0592131a604ebb0fd522e0e3b2c3687fe8b821b966b33ba3cd1d05b0b554b2",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 33265,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 474,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 29730,
+            "chunk_offset_start_chars": 29256,
+            "normalized_character_count": 33265
+          },
+          "score": 0.016129032258064516,
+          "strategy": "hybrid_rrf",
+          "lexical_rank": 2
+        },
+        {
+          "id": "paragraph-rust-book-ch17-02-concurrency-with-async-3457-4370-af52639618c3",
+          "text": "<Listing number=\"17-7\" caption=\"Using `await` with a join handle to run a task to completion\" file-name=\"src/main.rs\">\n\n```rust\n{{#rustdoc_include ../listings/ch17-async-await/listing-17-07/src/main.rs:handle}}\n```\n\n</Listing>\n\nThis updated version runs until _both_ loops finish:\n\n<!-- Not extracting output because changes to this output aren't significant;\nthe changes are likely to be due to the threads running differently rather than\nchanges in the compiler -->\n\n```text\nhi number 1 from the second task!\nhi number 1 from the first task!\nhi number 2 from the first task!\nhi number 2 from the second task!\nhi number 3 from the first task!\nhi number 3 from the second task!\nhi number 4 from the first task!\nhi number 4 from the second task!\nhi number 5 from the first task!\nhi number 6 from the first task!\nhi number 7 from the first task!\nhi number 8 from the first task!\nhi number 9 from the first task!\n```",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch17-02-concurrency-with-async.md",
+          "page": "rust-book-ch17-02-concurrency-with-async",
+          "metadata": {
+            "page_id": "rust-book-ch17-02-concurrency-with-async",
+            "section": "Applying Concurrency with Async",
+            "unit_id": "rust-book-ch17-02-concurrency-with-async",
+            "headings": [],
+            "chapter_id": "ch17",
+            "block_types": [
+              "paragraph",
+              "code"
+            ],
+            "chunk_index": 5,
+            "location_id": "rust-book-ch17-02-concurrency-with-async",
+            "source_path": "starter/data/rust-book/src/ch17-02-concurrency-with-async.md",
+            "chapter_title": "Fundamentals of Asynchronous Programming: Async, Await, Futures, and Streams",
+            "section_title": "Applying Concurrency with Async",
+            "content_sha256": "eda98e95d74ba3c471402432a2f1928df0a2574873944cbd78aa99dd05061249",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 19320,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 913,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 4370,
+            "chunk_offset_start_chars": 3457,
+            "normalized_character_count": 19320
+          },
+          "score": 0.015873015873015872,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 3
+        }
+      ],
+      "context": "[paragraph-rust-book-ch12-05-working-with-environment-variables-685-1397-916a1464430d | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch12-05-working-with-environment-variables.md | page rust-book-ch12-05-working-with-environment-variables]\nWe first add a new `search_case_insensitive` function to the `minigrep` library\nthat will be called when the environment variable has a value. We’ll continue\nto follow the TDD process, so the first step is again to write a failing test.\nWe’ll add a new test for the new `search_case_insensitive` function and rename\nour old test from `one_result` to `case_sensitive` to clarify the differences\nbetween the two tests, as shown in Listing 12-20.\n\n<Listing number=\"12-20\" file-name=\"src/lib.rs\" caption=\"Adding a new failing test for the case-insensitive function we’re about to add\">\n\n```rust,ignore,does_not_compile\n{{#rustdoc_include ../listings/ch12-an-io-project/listing-12-20/src/lib.rs:here}}\n```\n\n</Listing>\n\n[paragraph-rust-book-ch21-02-multithreaded-29732-30731-7aa99733e2dc | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch21-02-multithreaded.md | page rust-book-ch21-02-multithreaded]\n```console\n$ cargo run\n   Compiling hello v0.1.0 (file:///projects/hello)\nwarning: field `workers` is never read\n --> src/lib.rs:7:5\n  |\n6 | pub struct ThreadPool {\n  |            ---------- field in this struct\n7 |     workers: Vec<Worker>,\n  |     ^^^^^^^\n  |\n  = note: `#[warn(dead_code)]` on by default\n\nwarning: fields `id` and `thread` are never read\n  --> src/lib.rs:48:5\n   |\n47 | struct Worker {\n   |        ------ fields in this struct\n48 |     id: usize,\n   |     ^^\n49 |     thread: thread::JoinHandle<()>,\n   |     ^^^^^^\n\nwarning: `hello` (lib) generated 2 warnings\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 4.91s\n     Running `target/debug/hello`\nWorker 0 got a job; executing.\nWorker 2 got a job; executing.\nWorker 1 got a job; executing.\nWorker 3 got a job; executing.\nWorker 0 got a job; executing.\nWorker 2 got a job; executing.\nWorker 1 got a job; executing.\nWorker 3 got a job; executing.\nWorker 0 got a job; executing.\nWorker 2 got a job; executing.\n```\n\n[paragraph-rust-book-ch17-05-traits-for-async-5018-5751-2a1c8c9a627e | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch17-05-traits-for-async.md | page rust-book-ch17-05-traits-for-async]\n<a id=\"pinning-and-the-pin-and-unpin-traits\"></a>\n<a id=\"the-pin-and-unpin-traits\"></a>\n\n### The `Pin` Type and the `Unpin` Trait\n\nBack in Listing 17-13, we used the `trpl::join!` macro to await three\nfutures. However, it’s common to have a collection such as a vector containing\nsome number of futures that won’t be known until runtime. Let’s change Listing\n17-13 to the code in Listing 17-23 that puts the three futures into a vector\nand calls the `trpl::join_all` function instead, which won’t compile yet.\n\n<Listing number=\"17-23\" caption=\"Awaiting futures in a collection\"  file-name=\"src/main.rs\">\n\n```rust,ignore,does_not_compile\n{{#rustdoc_include ../listings/ch17-async-await/listing-17-23/src/main.rs:here}}\n```\n\n</Listing>",
+      "context_ids": [
+        "paragraph-rust-book-ch12-05-working-with-environment-variables-685-1397-916a1464430d",
+        "paragraph-rust-book-ch21-02-multithreaded-29732-30731-7aa99733e2dc",
+        "paragraph-rust-book-ch17-05-traits-for-async-5018-5751-2a1c8c9a627e"
+      ]
+    },
+    {
+      "event": "invalid_or_missing_citations"
+    }
+  ],
+  "model": "gemini-3.5-flash-lite",
+  "query_id": "U04",
+  "split": "test",
+  "method": "hybrid",
+  "top_k": 5,
+  "context_budget_chars": 3200,
+  "max_searches": 2,
+  "elapsed_ms": 3173.36
+}

@@ -1,0 +1,138 @@
+{
+  "status": "answered",
+  "answer": "Function parameters, `let` statements, and `for` loops can only accept **irrefutable patterns** because the program cannot do anything meaningful when values do not match [paragraph-rust-book-ch19-02-refutability-568-1469-3877403f05e1].",
+  "citations": [
+    "paragraph-rust-book-ch19-02-refutability-568-1469-3877403f05e1"
+  ],
+  "events": [
+    {
+      "event": "search",
+      "query": "pattern types allowed in function parameters let statements and for loops",
+      "filter": null,
+      "results": [
+        {
+          "id": "paragraph-rust-book-ch19-02-refutability-568-1469-3877403f05e1",
+          "text": "Function parameters, `let` statements, and `for` loops can only accept\nirrefutable patterns because the program cannot do anything meaningful when\nvalues don’t match. The `if let` and `while let` expressions and the\n`let...else` statement accept refutable and irrefutable patterns, but the\ncompiler warns against irrefutable patterns because, by definition, they’re\nintended to handle possible failure: The functionality of a conditional is in\nits ability to perform differently depending on success or failure.\n\nIn general, you shouldn’t have to worry about the distinction between refutable\nand irrefutable patterns; however, you do need to be familiar with the concept\nof refutability so that you can respond when you see it in an error message. In\nthose cases, you’ll need to change either the pattern or the construct you’re\nusing the pattern with, depending on the intended behavior of the code.",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch19-02-refutability.md",
+          "page": "rust-book-ch19-02-refutability",
+          "metadata": {
+            "page_id": "rust-book-ch19-02-refutability",
+            "section": "Refutability: Whether a Pattern Might Fail to Match",
+            "unit_id": "rust-book-ch19-02-refutability",
+            "headings": [],
+            "chapter_id": "ch19",
+            "block_types": [
+              "paragraph"
+            ],
+            "chunk_index": 2,
+            "location_id": "rust-book-ch19-02-refutability",
+            "source_path": "starter/data/rust-book/src/ch19-02-refutability.md",
+            "chapter_title": "Patterns and Matching",
+            "section_title": "Refutability: Whether a Pattern Might Fail to Match",
+            "content_sha256": "3a49a434317bae131e30d124aefa0d5316d759b186c82355d975c1ba3a64df0d",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 4327,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 901,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 1469,
+            "chunk_offset_start_chars": 568,
+            "normalized_character_count": 4327
+          },
+          "score": 0.831609845161438,
+          "strategy": "dense_pgvector_B"
+        },
+        {
+          "id": "paragraph-rust-book-ch19-01-all-the-places-for-patterns-1922-2601-2991a18421db",
+          "text": "Prior to this chapter, we had only explicitly discussed using patterns with\n`match` and `if let`, but in fact, we’ve used patterns in other places as well,\nincluding in `let` statements. For example, consider this straightforward\nvariable assignment with `let`:\n\n```rust\nlet x = 5;\n```\n\nEvery time you’ve used a `let` statement like this you’ve been using patterns,\nalthough you might not have realized it! More formally, a `let` statement looks\nlike this:\n\n<!--\n  Manually formatted rather than using Markdown intentionally: Markdown does not\n  support italicizing code in the body of a block like this!\n-->\n\n<pre>\n<code>let <em>PATTERN</em> = <em>EXPRESSION</em>;</code>\n</pre>",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch19-01-all-the-places-for-patterns.md",
+          "page": "rust-book-ch19-01-all-the-places-for-patterns",
+          "metadata": {
+            "page_id": "rust-book-ch19-01-all-the-places-for-patterns",
+            "section": "All the Places Patterns Can Be Used",
+            "unit_id": "rust-book-ch19-01-all-the-places-for-patterns",
+            "headings": [],
+            "chapter_id": "ch19",
+            "block_types": [
+              "paragraph",
+              "code"
+            ],
+            "chunk_index": 3,
+            "location_id": "rust-book-ch19-01-all-the-places-for-patterns",
+            "source_path": "starter/data/rust-book/src/ch19-01-all-the-places-for-patterns.md",
+            "chapter_title": "Patterns and Matching",
+            "section_title": "All the Places Patterns Can Be Used",
+            "content_sha256": "1fcb51149743b7df5afb055c6be1e30650c948c19a5a6841798d20ebeb21a212",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 10867,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 679,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 2601,
+            "chunk_offset_start_chars": 1922,
+            "normalized_character_count": 10867
+          },
+          "score": 0.8122461065952709,
+          "strategy": "dense_pgvector_B"
+        },
+        {
+          "id": "paragraph-rust-book-ch19-03-pattern-syntax-27097-27665-f377a108b6f0",
+          "text": "Rust’s patterns are very useful in distinguishing between different kinds of\ndata. When used in `match` expressions, Rust ensures that your patterns cover\nevery possible value, or your program won’t compile. Patterns in `let`\nstatements and function parameters make those constructs more useful, enabling\nthe destructuring of values into smaller parts and assigning those parts to\nvariables. We can create simple or complex patterns to suit our needs.\n\nNext, for the penultimate chapter of the book, we’ll look at some advanced\naspects of a variety of Rust’s features.",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch19-03-pattern-syntax.md",
+          "page": "rust-book-ch19-03-pattern-syntax",
+          "metadata": {
+            "page_id": "rust-book-ch19-03-pattern-syntax",
+            "section": "Pattern Syntax",
+            "unit_id": "rust-book-ch19-03-pattern-syntax",
+            "headings": [],
+            "chapter_id": "ch19",
+            "block_types": [
+              "paragraph"
+            ],
+            "chunk_index": 33,
+            "location_id": "rust-book-ch19-03-pattern-syntax",
+            "source_path": "starter/data/rust-book/src/ch19-03-pattern-syntax.md",
+            "chapter_title": "Patterns and Matching",
+            "section_title": "Pattern Syntax",
+            "content_sha256": "3bf90451b9f978fbc01e7df07ab8b2d3b2f9ea9e1afb68e61a2e188335eadf6f",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 27486,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 568,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 27665,
+            "chunk_offset_start_chars": 27097,
+            "normalized_character_count": 27486
+          },
+          "score": 0.7875200510025024,
+          "strategy": "dense_pgvector_B"
+        }
+      ],
+      "context": "[paragraph-rust-book-ch19-02-refutability-568-1469-3877403f05e1 | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch19-02-refutability.md | page rust-book-ch19-02-refutability]\nFunction parameters, `let` statements, and `for` loops can only accept\nirrefutable patterns because the program cannot do anything meaningful when\nvalues don’t match. The `if let` and `while let` expressions and the\n`let...else` statement accept refutable and irrefutable patterns, but the\ncompiler warns against irrefutable patterns because, by definition, they’re\nintended to handle possible failure: The functionality of a conditional is in\nits ability to perform differently depending on success or failure.\n\nIn general, you shouldn’t have to worry about the distinction between refutable\nand irrefutable patterns; however, you do need to be familiar with the concept\nof refutability so that you can respond when you see it in an error message. In\nthose cases, you’ll need to change either the pattern or the construct you’re\nusing the pattern with, depending on the intended behavior of the code.\n\n[paragraph-rust-book-ch19-01-all-the-places-for-patterns-1922-2601-2991a18421db | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch19-01-all-the-places-for-patterns.md | page rust-book-ch19-01-all-the-places-for-patterns]\nPrior to this chapter, we had only explicitly discussed using patterns with\n`match` and `if let`, but in fact, we’ve used patterns in other places as well,\nincluding in `let` statements. For example, consider this straightforward\nvariable assignment with `let`:\n\n```rust\nlet x = 5;\n```\n\nEvery time you’ve used a `let` statement like this you’ve been using patterns,\nalthough you might not have realized it! More formally, a `let` statement looks\nlike this:\n\n<!--\n  Manually formatted rather than using Markdown intentionally: Markdown does not\n  support italicizing code in the body of a block like this!\n-->\n\n<pre>\n<code>let <em>PATTERN</em> = <em>EXPRESSION</em>;</code>\n</pre>",
+      "context_ids": [
+        "paragraph-rust-book-ch19-02-refutability-568-1469-3877403f05e1",
+        "paragraph-rust-book-ch19-01-all-the-places-for-patterns-1922-2601-2991a18421db"
+      ]
+    },
+    {
+      "event": "answer"
+    }
+  ],
+  "model": "gemini-3.5-flash-lite",
+  "query_id": "Q24",
+  "split": "test",
+  "method": "dense",
+  "top_k": 3,
+  "context_budget_chars": 2400,
+  "max_searches": 2,
+  "elapsed_ms": 3480.9
+}

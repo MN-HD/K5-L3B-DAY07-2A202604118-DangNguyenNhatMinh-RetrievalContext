@@ -1,0 +1,224 @@
+{
+  "status": "answered",
+  "answer": "As described in the macros chapter, the central idea of metaprogramming is writing code that writes other code [paragraph-rust-book-ch20-05-macros-727-1312-9b59394ff543].",
+  "citations": [
+    "paragraph-rust-book-ch20-05-macros-727-1312-9b59394ff543"
+  ],
+  "events": [
+    {
+      "event": "search",
+      "query": "metaprogramming macros central idea",
+      "filter": null,
+      "results": [
+        {
+          "id": "paragraph-rust-book-ch20-05-macros-727-1312-9b59394ff543",
+          "text": "Fundamentally, macros are a way of writing code that writes other code, which\nis known as _metaprogramming_. In Appendix C, we discuss the `derive`\nattribute, which generates an implementation of various traits for you. We’ve\nalso used the `println!` and `vec!` macros throughout the book. All of these\nmacros _expand_ to produce more code than the code you’ve written manually.\n\nMetaprogramming is useful for reducing the amount of code you have to write and\nmaintain, which is also one of the roles of functions. However, macros have\nsome additional powers that functions don’t have.",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch20-05-macros.md",
+          "page": "rust-book-ch20-05-macros",
+          "metadata": {
+            "page_id": "rust-book-ch20-05-macros",
+            "section": "Macros",
+            "unit_id": "rust-book-ch20-05-macros",
+            "headings": [],
+            "chapter_id": "ch20",
+            "block_types": [
+              "paragraph"
+            ],
+            "chunk_index": 2,
+            "location_id": "rust-book-ch20-05-macros",
+            "source_path": "starter/data/rust-book/src/ch20-05-macros.md",
+            "chapter_title": "Advanced Features",
+            "section_title": "Macros",
+            "content_sha256": "a2147e14a9ba0908978f13afd7be4c3dcf8fdf7f5ae2411a3d35134a66bf3fd2",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 24507,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 585,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 1312,
+            "chunk_offset_start_chars": 727,
+            "normalized_character_count": 24507
+          },
+          "score": 0.032266458495966696,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 1,
+          "lexical_rank": 3
+        },
+        {
+          "id": "paragraph-rust-book-ch20-05-macros-2141-2543-534560b09d20",
+          "text": "Another important difference between macros and functions is that you must\ndefine macros or bring them into scope _before_ you call them in a file, as\nopposed to functions you can define anywhere and call anywhere.\n\n<!-- Old headings. Do not remove or links may break. -->\n\n<a id=\"declarative-macros-with-macro_rules-for-general-metaprogramming\"></a>\n\n### Declarative Macros for General Metaprogramming",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch20-05-macros.md",
+          "page": "rust-book-ch20-05-macros",
+          "metadata": {
+            "page_id": "rust-book-ch20-05-macros",
+            "section": "Macros",
+            "unit_id": "rust-book-ch20-05-macros",
+            "headings": [
+              "Declarative Macros for General Metaprogramming"
+            ],
+            "chapter_id": "ch20",
+            "block_types": [
+              "paragraph",
+              "heading_or_text"
+            ],
+            "chunk_index": 4,
+            "location_id": "rust-book-ch20-05-macros",
+            "source_path": "starter/data/rust-book/src/ch20-05-macros.md",
+            "chapter_title": "Advanced Features",
+            "section_title": "Macros",
+            "content_sha256": "a2147e14a9ba0908978f13afd7be4c3dcf8fdf7f5ae2411a3d35134a66bf3fd2",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 24507,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 402,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 2543,
+            "chunk_offset_start_chars": 2141,
+            "normalized_character_count": 24507
+          },
+          "score": 0.032018442622950824,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 4,
+          "lexical_rank": 1
+        },
+        {
+          "id": "paragraph-rust-book-ch20-05-macros-24425-24760-2c49239612dd",
+          "text": "[ref]: ../reference/macros-by-example.html\n[tlborm]: https://veykril.github.io/tlborm/\n[syn]: https://crates.io/crates/syn\n[quote]: https://crates.io/crates/quote\n[syn-docs]: https://docs.rs/syn/2.0/syn/struct.DeriveInput.html\n[quote-docs]: https://docs.rs/quote\n[decl]: #declarative-macros-with-macro_rules-for-general-metaprogramming",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch20-05-macros.md",
+          "page": "rust-book-ch20-05-macros",
+          "metadata": {
+            "page_id": "rust-book-ch20-05-macros",
+            "section": "Macros",
+            "unit_id": "rust-book-ch20-05-macros",
+            "headings": [],
+            "chapter_id": "ch20",
+            "block_types": [
+              "paragraph"
+            ],
+            "chunk_index": 31,
+            "location_id": "rust-book-ch20-05-macros",
+            "source_path": "starter/data/rust-book/src/ch20-05-macros.md",
+            "chapter_title": "Advanced Features",
+            "section_title": "Macros",
+            "content_sha256": "a2147e14a9ba0908978f13afd7be4c3dcf8fdf7f5ae2411a3d35134a66bf3fd2",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 24507,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 335,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 24760,
+            "chunk_offset_start_chars": 24425,
+            "normalized_character_count": 24507
+          },
+          "score": 0.031054405392392875,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 2,
+          "lexical_rank": 7
+        },
+        {
+          "id": "paragraph-rust-book-ch20-05-macros-7621-8619-120c1ca00020",
+          "text": "The second form of macros is the procedural macro, which acts more like a\nfunction (and is a type of procedure). _Procedural macros_ accept some code as\nan input, operate on that code, and produce some code as an output rather than\nmatching against patterns and replacing the code with other code as declarative\nmacros do. The three kinds of procedural macros are custom `derive`,\nattribute-like, and function-like, and all work in a similar fashion.\n\nWhen creating procedural macros, the definitions must reside in their own crate\nwith a special crate type. This is for complex technical reasons that we hope\nto eliminate in the future. In Listing 20-36, we show how to define a\nprocedural macro, where `some_attribute` is a placeholder for using a specific\nmacro variety.\n\n<Listing number=\"20-36\" file-name=\"src/lib.rs\" caption=\"An example of defining a procedural macro\">\n\n```rust,ignore\nuse proc_macro::TokenStream;\n\n#[some_attribute]\npub fn some_name(input: TokenStream) -> TokenStream {\n}\n```",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch20-05-macros.md",
+          "page": "rust-book-ch20-05-macros",
+          "metadata": {
+            "page_id": "rust-book-ch20-05-macros",
+            "section": "Macros",
+            "unit_id": "rust-book-ch20-05-macros",
+            "headings": [],
+            "chapter_id": "ch20",
+            "block_types": [
+              "paragraph",
+              "code"
+            ],
+            "chunk_index": 11,
+            "location_id": "rust-book-ch20-05-macros",
+            "source_path": "starter/data/rust-book/src/ch20-05-macros.md",
+            "chapter_title": "Advanced Features",
+            "section_title": "Macros",
+            "content_sha256": "a2147e14a9ba0908978f13afd7be4c3dcf8fdf7f5ae2411a3d35134a66bf3fd2",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 24507,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 998,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 8619,
+            "chunk_offset_start_chars": 7621,
+            "normalized_character_count": 24507
+          },
+          "score": 0.03057889822595705,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 3,
+          "lexical_rank": 8
+        },
+        {
+          "id": "paragraph-rust-book-ch20-05-macros-22739-23661-35f74d81c446",
+          "text": "Function-like macros define macros that look like function calls. Similarly to\n`macro_rules!` macros, they’re more flexible than functions; for example, they\ncan take an unknown number of arguments. However, `macro_rules!` macros can\nonly be defined using the match-like syntax we discussed in the [“Declarative\nMacros for General Metaprogramming”][decl]<!-- ignore --> section earlier.\nFunction-like macros take a `TokenStream` parameter, and their definition\nmanipulates that `TokenStream` using Rust code as the other two types of\nprocedural macros do. An example of a function-like macro is an `sql!` macro\nthat might be called like so:\n\n```rust,ignore\nlet sql = sql!(SELECT * FROM posts WHERE id=1);\n```\n\nThis macro would parse the SQL statement inside it and check that it’s\nsyntactically correct, which is much more complex processing than a\n`macro_rules!` macro can do. The `sql!` macro would be defined like this:",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch20-05-macros.md",
+          "page": "rust-book-ch20-05-macros",
+          "metadata": {
+            "page_id": "rust-book-ch20-05-macros",
+            "section": "Macros",
+            "unit_id": "rust-book-ch20-05-macros",
+            "headings": [],
+            "chapter_id": "ch20",
+            "block_types": [
+              "paragraph",
+              "code"
+            ],
+            "chunk_index": 29,
+            "location_id": "rust-book-ch20-05-macros",
+            "source_path": "starter/data/rust-book/src/ch20-05-macros.md",
+            "chapter_title": "Advanced Features",
+            "section_title": "Macros",
+            "content_sha256": "a2147e14a9ba0908978f13afd7be4c3dcf8fdf7f5ae2411a3d35134a66bf3fd2",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 24507,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 922,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 23661,
+            "chunk_offset_start_chars": 22739,
+            "normalized_character_count": 24507
+          },
+          "score": 0.030330882352941176,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 8,
+          "lexical_rank": 4
+        }
+      ],
+      "context": "[paragraph-rust-book-ch20-05-macros-727-1312-9b59394ff543 | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch20-05-macros.md | page rust-book-ch20-05-macros]\nFundamentally, macros are a way of writing code that writes other code, which\nis known as _metaprogramming_. In Appendix C, we discuss the `derive`\nattribute, which generates an implementation of various traits for you. We’ve\nalso used the `println!` and `vec!` macros throughout the book. All of these\nmacros _expand_ to produce more code than the code you’ve written manually.\n\nMetaprogramming is useful for reducing the amount of code you have to write and\nmaintain, which is also one of the roles of functions. However, macros have\nsome additional powers that functions don’t have.\n\n[paragraph-rust-book-ch20-05-macros-2141-2543-534560b09d20 | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch20-05-macros.md | page rust-book-ch20-05-macros]\nAnother important difference between macros and functions is that you must\ndefine macros or bring them into scope _before_ you call them in a file, as\nopposed to functions you can define anywhere and call anywhere.\n\n<!-- Old headings. Do not remove or links may break. -->\n\n<a id=\"declarative-macros-with-macro_rules-for-general-metaprogramming\"></a>\n\n### Declarative Macros for General Metaprogramming\n\n[paragraph-rust-book-ch20-05-macros-24425-24760-2c49239612dd | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch20-05-macros.md | page rust-book-ch20-05-macros]\n[ref]: ../reference/macros-by-example.html\n[tlborm]: https://veykril.github.io/tlborm/\n[syn]: https://crates.io/crates/syn\n[quote]: https://crates.io/crates/quote\n[syn-docs]: https://docs.rs/syn/2.0/syn/struct.DeriveInput.html\n[quote-docs]: https://docs.rs/quote\n[decl]: #declarative-macros-with-macro_rules-for-general-metaprogramming\n\n[paragraph-rust-book-ch20-05-macros-7621-8619-120c1ca00020 | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch20-05-macros.md | page rust-book-ch20-05-macros]\nThe second form of macros is the procedural macro, which acts more like a\nfunction (and is a type of procedure). _Procedural macros_ accept some code as\nan input, operate on that code, and produce some code as an output rather than\nmatching against patterns and replacing the code with other code as declarative\nmacros do. The three kinds of procedural macros are custom `derive`,\nattribute-like, and function-like, and all work in a similar fashion.\n\nWhen creating procedural macros, the definitions must reside in their own crate\nwith a special crate type. This is for complex technical reasons that we hope\nto eliminate in the future. In Listing 20-36, we show how to define a\nprocedural macro, where `some_attribute` is a placeholder for using a specific\nmacro variety.\n\n<Listing number=\"20-36\" file-name=\"src/lib.rs\" caption=\"An example of defining a procedural macro\">\n\n```rust,ignore\nuse proc_macro::TokenStream;\n\n#[some_attribute]\npub fn some_name(input: TokenStream) -> TokenStream {\n}\n```",
+      "context_ids": [
+        "paragraph-rust-book-ch20-05-macros-727-1312-9b59394ff543",
+        "paragraph-rust-book-ch20-05-macros-2141-2543-534560b09d20",
+        "paragraph-rust-book-ch20-05-macros-24425-24760-2c49239612dd",
+        "paragraph-rust-book-ch20-05-macros-7621-8619-120c1ca00020"
+      ]
+    },
+    {
+      "event": "answer"
+    }
+  ],
+  "model": "gemini-3.5-flash-lite",
+  "query_id": "Q25",
+  "split": "test",
+  "method": "hybrid",
+  "top_k": 5,
+  "context_budget_chars": 3200,
+  "max_searches": 2,
+  "elapsed_ms": 4984.52
+}

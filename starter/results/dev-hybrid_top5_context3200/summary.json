@@ -1,0 +1,18 @@
+{
+  "experiment": "hybrid_top5_context3200",
+  "method": "hybrid",
+  "split": "dev",
+  "n": 20,
+  "hypothesis": "RRF may combine semantic and lexical rankings to improve evidence coverage; top-5 and context budget remain fixed.",
+  "top_k_retrieved": 5,
+  "top_k_ranking_metric": 3,
+  "context_budget_chars": 3200,
+  "hit1": 7,
+  "hit3": 13,
+  "context_hit": 13,
+  "hit1_rate": 0.35,
+  "hit3_rate": 0.65,
+  "context_evidence_rate": 0.65,
+  "median_ms": 41.65,
+  "service_cost_usd": 0
+}

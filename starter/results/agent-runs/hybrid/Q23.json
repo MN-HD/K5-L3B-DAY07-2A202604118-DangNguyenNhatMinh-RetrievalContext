@@ -1,0 +1,221 @@
+{
+  "status": "answered",
+  "answer": "Rust's standard library uses a 1:1 model of thread implementation, meaning a program uses one operating system thread for\n every one language thread [paragraph-rust-book-ch16-01-threads-1328-2321-acda81619eda].",
+  "citations": [
+    "paragraph-rust-book-ch16-01-threads-1328-2321-acda81619eda"
+  ],
+  "events": [
+    {
+      "event": "search",
+      "query": "threading model standard library threads mapped",
+      "filter": null,
+      "results": [
+        {
+          "id": "paragraph-rust-book-ch16-01-threads-1328-2321-acda81619eda",
+          "text": "Programming languages implement threads in a few different ways, and many\noperating systems provide an API the programming language can call for creating\nnew threads. The Rust standard library uses a _1:1_ model of thread\nimplementation, whereby a program uses one operating system thread per one\nlanguage thread. There are crates that implement other models of threading that\nmake different trade-offs to the 1:1 model. (Rust’s async system, which we will\nsee in the next chapter, provides another approach to concurrency as well.)\n\n### Creating a New Thread with `spawn`\n\nTo create a new thread, we call the `thread::spawn` function and pass it a\nclosure (we talked about closures in Chapter 13) containing the code we want to\nrun in the new thread. The example in Listing 16-1 prints some text from a main\nthread and other text from a new thread.\n\n<Listing number=\"16-1\" file-name=\"src/main.rs\" caption=\"Creating a new thread to print one thing while the main thread prints something else\">",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch16-01-threads.md",
+          "page": "rust-book-ch16-01-threads",
+          "metadata": {
+            "page_id": "rust-book-ch16-01-threads",
+            "section": "Using Threads to Run Code Simultaneously",
+            "unit_id": "rust-book-ch16-01-threads",
+            "headings": [
+              "Creating a New Thread with `spawn`"
+            ],
+            "chapter_id": "ch16",
+            "block_types": [
+              "paragraph",
+              "heading_or_text"
+            ],
+            "chunk_index": 3,
+            "location_id": "rust-book-ch16-01-threads",
+            "source_path": "starter/data/rust-book/src/ch16-01-threads.md",
+            "chapter_title": "Fearless Concurrency",
+            "section_title": "Using Threads to Run Code Simultaneously",
+            "content_sha256": "b3c09d1a242c16930ddd160a2b66a1a9246406c7f2bd959db8f57ebcdf189e31",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 12381,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 993,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 2321,
+            "chunk_offset_start_chars": 1328,
+            "normalized_character_count": 12381
+          },
+          "score": 0.03225806451612903,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 2,
+          "lexical_rank": 2
+        },
+        {
+          "id": "paragraph-rust-book-ch21-02-multithreaded-18405-19260-5f6962e64d2a",
+          "text": "We left a comment in the `for` loop in Listing 21-14 regarding the creation of\nthreads. Here, we’ll look at how we actually create threads. The standard\nlibrary provides `thread::spawn` as a way to create threads, and\n`thread::spawn` expects to get some code the thread should run as soon as the\nthread is created. However, in our case, we want to create the threads and have\nthem _wait_ for code that we’ll send later. The standard library’s\nimplementation of threads doesn’t include any way to do that; we have to\nimplement it manually.\n\nWe’ll implement this behavior by introducing a new data structure between the\n`ThreadPool` and the threads that will manage this new behavior. We’ll call\nthis data structure _Worker_, which is a common term in pooling\nimplementations. The `Worker` picks up code that needs to be run and runs the\ncode in its thread.",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch21-02-multithreaded.md",
+          "page": "rust-book-ch21-02-multithreaded",
+          "metadata": {
+            "page_id": "rust-book-ch21-02-multithreaded",
+            "section": "From a Single-Threaded to a Multithreaded Server",
+            "unit_id": "rust-book-ch21-02-multithreaded",
+            "headings": [],
+            "chapter_id": "ch21",
+            "block_types": [
+              "paragraph"
+            ],
+            "chunk_index": 23,
+            "location_id": "rust-book-ch21-02-multithreaded",
+            "source_path": "starter/data/rust-book/src/ch21-02-multithreaded.md",
+            "chapter_title": "Final Project: Building a Multithreaded Web Server",
+            "section_title": "From a Single-Threaded to a Multithreaded Server",
+            "content_sha256": "ea0592131a604ebb0fd522e0e3b2c3687fe8b821b966b33ba3cd1d05b0b554b2",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 33265,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 855,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 19260,
+            "chunk_offset_start_chars": 18405,
+            "normalized_character_count": 33265
+          },
+          "score": 0.03149801587301587,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 4,
+          "lexical_rank": 3
+        },
+        {
+          "id": "paragraph-rust-book-ch21-02-multithreaded-4282-5086-b6be3d76415a",
+          "text": "This technique is just one of many ways to improve the throughput of a web\nserver. Other options you might explore are the fork/join model, the\nsingle-threaded async I/O model, and the multithreaded async I/O model. If\nyou’re interested in this topic, you can read more about other solutions and\ntry to implement them; with a low-level language like Rust, all of these\noptions are possible.\n\nBefore we begin implementing a thread pool, let’s talk about what using the\npool should look like. When you’re trying to design code, writing the client\ninterface first can help guide your design. Write the API of the code so that\nit’s structured in the way you want to call it; then, implement the\nfunctionality within that structure rather than implementing the functionality\nand then designing the public API.",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch21-02-multithreaded.md",
+          "page": "rust-book-ch21-02-multithreaded",
+          "metadata": {
+            "page_id": "rust-book-ch21-02-multithreaded",
+            "section": "From a Single-Threaded to a Multithreaded Server",
+            "unit_id": "rust-book-ch21-02-multithreaded",
+            "headings": [],
+            "chapter_id": "ch21",
+            "block_types": [
+              "paragraph"
+            ],
+            "chunk_index": 6,
+            "location_id": "rust-book-ch21-02-multithreaded",
+            "source_path": "starter/data/rust-book/src/ch21-02-multithreaded.md",
+            "chapter_title": "Final Project: Building a Multithreaded Web Server",
+            "section_title": "From a Single-Threaded to a Multithreaded Server",
+            "content_sha256": "ea0592131a604ebb0fd522e0e3b2c3687fe8b821b966b33ba3cd1d05b0b554b2",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 33265,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 804,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 5086,
+            "chunk_offset_start_chars": 4282,
+            "normalized_character_count": 33265
+          },
+          "score": 0.029910714285714284,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 10,
+          "lexical_rank": 4
+        },
+        {
+          "id": "paragraph-rust-book-ch17-06-futures-tasks-threads-900-1328-90f8bc430a21",
+          "text": "The async model provides a different—and ultimately complementary—set of\ntradeoffs. In the async model, concurrent operations don’t require their own\nthreads. Instead, they can run on tasks, as when we used `trpl::spawn_task` to\nkick off work from a synchronous function in the streams section. A task is\nsimilar to a thread, but instead of being managed by the operating system, it’s\nmanaged by library-level code: the runtime.",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch17-06-futures-tasks-threads.md",
+          "page": "rust-book-ch17-06-futures-tasks-threads",
+          "metadata": {
+            "page_id": "rust-book-ch17-06-futures-tasks-threads",
+            "section": "Putting It All Together: Futures, Tasks, and Threads",
+            "unit_id": "rust-book-ch17-06-futures-tasks-threads",
+            "headings": [],
+            "chapter_id": "ch17",
+            "block_types": [
+              "paragraph"
+            ],
+            "chunk_index": 2,
+            "location_id": "rust-book-ch17-06-futures-tasks-threads",
+            "source_path": "starter/data/rust-book/src/ch17-06-futures-tasks-threads.md",
+            "chapter_title": "Fundamentals of Asynchronous Programming: Async, Await, Futures, and Streams",
+            "section_title": "Putting It All Together: Futures, Tasks, and Threads",
+            "content_sha256": "3faaf92137fcbfb14d95eed4bd17fba1a474aedbce0b11940351dc62b5cc9090",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 5744,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 428,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 1328,
+            "chunk_offset_start_chars": 900,
+            "normalized_character_count": 5744
+          },
+          "score": 0.029726775956284153,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 15,
+          "lexical_rank": 1
+        },
+        {
+          "id": "paragraph-rust-book-ch17-02-concurrency-with-async-19045-19423-07a0d47e71d9",
+          "text": "[thread-spawn]: ch16-01-threads.html#creating-a-new-thread-with-spawn\n[join-handles]: ch16-01-threads.html#waiting-for-all-threads-to-finish\n[message-passing-threads]: ch16-02-message-passing.html\n[if-let]: ch06-03-if-let.html\n[capture-or-move]: ch13-01-closures.html#capturing-references-or-moving-ownership\n[move-threads]: ch16-01-threads.html#using-move-closures-with-threads",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch17-02-concurrency-with-async.md",
+          "page": "rust-book-ch17-02-concurrency-with-async",
+          "metadata": {
+            "page_id": "rust-book-ch17-02-concurrency-with-async",
+            "section": "Applying Concurrency with Async",
+            "unit_id": "rust-book-ch17-02-concurrency-with-async",
+            "headings": [],
+            "chapter_id": "ch17",
+            "block_types": [
+              "paragraph"
+            ],
+            "chunk_index": 25,
+            "location_id": "rust-book-ch17-02-concurrency-with-async",
+            "source_path": "starter/data/rust-book/src/ch17-02-concurrency-with-async.md",
+            "chapter_title": "Fundamentals of Asynchronous Programming: Async, Await, Futures, and Streams",
+            "section_title": "Applying Concurrency with Async",
+            "content_sha256": "eda98e95d74ba3c471402432a2f1928df0a2574873944cbd78aa99dd05061249",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 19320,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 378,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 19423,
+            "chunk_offset_start_chars": 19045,
+            "normalized_character_count": 19320
+          },
+          "score": 0.029631255487269532,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 7,
+          "lexical_rank": 8
+        }
+      ],
+      "context": "[paragraph-rust-book-ch16-01-threads-1328-2321-acda81619eda | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch16-01-threads.md | page rust-book-ch16-01-threads]\nProgramming languages implement threads in a few different ways, and many\noperating systems provide an API the programming language can call for creating\nnew threads. The Rust standard library uses a _1:1_ model of thread\nimplementation, whereby a program uses one operating system thread per one\nlanguage thread. There are crates that implement other models of threading that\nmake different trade-offs to the 1:1 model. (Rust’s async system, which we will\nsee in the next chapter, provides another approach to concurrency as well.)\n\n### Creating a New Thread with `spawn`\n\nTo create a new thread, we call the `thread::spawn` function and pass it a\nclosure (we talked about closures in Chapter 13) containing the code we want to\nrun in the new thread. The example in Listing 16-1 prints some text from a main\nthread and other text from a new thread.\n\n<Listing number=\"16-1\" file-name=\"src/main.rs\" caption=\"Creating a new thread to print one thing while the main thread prints something else\">\n\n[paragraph-rust-book-ch21-02-multithreaded-18405-19260-5f6962e64d2a | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch21-02-multithreaded.md | page rust-book-ch21-02-multithreaded]\nWe left a comment in the `for` loop in Listing 21-14 regarding the creation of\nthreads. Here, we’ll look at how we actually create threads. The standard\nlibrary provides `thread::spawn` as a way to create threads, and\n`thread::spawn` expects to get some code the thread should run as soon as the\nthread is created. However, in our case, we want to create the threads and have\nthem _wait_ for code that we’ll send later. The standard library’s\nimplementation of threads doesn’t include any way to do that; we have to\nimplement it manually.\n\nWe’ll implement this behavior by introducing a new data structure between the\n`ThreadPool` and the threads that will manage this new behavior. We’ll call\nthis data structure _Worker_, which is a common term in pooling\nimplementations. The `Worker` picks up code that needs to be run and runs the\ncode in its thread.\n\n[paragraph-rust-book-ch17-06-futures-tasks-threads-900-1328-90f8bc430a21 | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch17-06-futures-tasks-threads.md | page rust-book-ch17-06-futures-tasks-threads]\nThe async model provides a different—and ultimately complementary—set of\ntradeoffs. In the async model, concurrent operations don’t require their own\nthreads. Instead, they can run on tasks, as when we used `trpl::spawn_task` to\nkick off work from a synchronous function in the streams section. A task is\nsimilar to a thread, but instead of being managed by the operating system, it’s\nmanaged by library-level code: the runtime.",
+      "context_ids": [
+        "paragraph-rust-book-ch16-01-threads-1328-2321-acda81619eda",
+        "paragraph-rust-book-ch21-02-multithreaded-18405-19260-5f6962e64d2a",
+        "paragraph-rust-book-ch17-06-futures-tasks-threads-900-1328-90f8bc430a21"
+      ]
+    },
+    {
+      "event": "answer"
+    }
+  ],
+  "model": "gemini-3.5-flash-lite",
+  "query_id": "Q23",
+  "split": "test",
+  "method": "hybrid",
+  "top_k": 5,
+  "context_budget_chars": 3200,
+  "max_searches": 2,
+  "elapsed_ms": 7452.51
+}

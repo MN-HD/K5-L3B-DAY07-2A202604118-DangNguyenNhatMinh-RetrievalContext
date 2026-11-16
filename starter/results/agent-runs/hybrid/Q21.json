@@ -1,0 +1,230 @@
+{
+  "status": "answered",
+  "answer": "Based on the provided text, the member packages in a Cargo workspace share the same *Cargo.lock* and output directory [paragraph-rust-book-ch14-03-cargo-workspaces-413-1105-56074e6dd144].",
+  "citations": [
+    "paragraph-rust-book-ch14-03-cargo-workspaces-413-1105-56074e6dd144"
+  ],
+  "events": [
+    {
+      "event": "search",
+      "query": "Cargo workspace member packages share",
+      "filter": {
+        "chapter_id": "ch14"
+      },
+      "results": [
+        {
+          "id": "paragraph-rust-book-ch14-03-cargo-workspaces-2097-2623-d04fe6714962",
+          "text": "Running `cargo new` inside a workspace also automatically adds the newly created\npackage to the `members` key in the `[workspace]` definition in the workspace\n_Cargo.toml_, like this:\n\n```toml\n{{#include ../listings/ch14-more-about-cargo/output-only-01-adder-crate/add/Cargo.toml}}\n```\n\nAt this point, we can build the workspace by running `cargo build`. The files\nin your _add_ directory should look like this:\n\n```text\n├── Cargo.lock\n├── Cargo.toml\n├── adder\n│   ├── Cargo.toml\n│   └── src\n│       └── main.rs\n└── target\n```",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch14-03-cargo-workspaces.md",
+          "page": "rust-book-ch14-03-cargo-workspaces",
+          "metadata": {
+            "page_id": "rust-book-ch14-03-cargo-workspaces",
+            "section": "Cargo Workspaces",
+            "unit_id": "rust-book-ch14-03-cargo-workspaces",
+            "headings": [],
+            "chapter_id": "ch14",
+            "block_types": [
+              "paragraph",
+              "code"
+            ],
+            "chunk_index": 4,
+            "location_id": "rust-book-ch14-03-cargo-workspaces",
+            "source_path": "starter/data/rust-book/src/ch14-03-cargo-workspaces.md",
+            "chapter_title": "More about Cargo and Crates.io",
+            "section_title": "Cargo Workspaces",
+            "content_sha256": "14ded080a82f9e087424fcdb7f681b5e28ccac7dfe5ff77b2c8bd4d3b761d12e",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 13778,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 526,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 2623,
+            "chunk_offset_start_chars": 2097,
+            "normalized_character_count": 13778
+          },
+          "score": 0.032018442622950824,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 1,
+          "lexical_rank": 4
+        },
+        {
+          "id": "paragraph-rust-book-ch14-03-cargo-workspaces-1107-2095-6d44931e1426",
+          "text": "Next, in the _add_ directory, we create the _Cargo.toml_ file that will\nconfigure the entire workspace. This file won’t have a `[package]` section.\nInstead, it will start with a `[workspace]` section that will allow us to add\nmembers to the workspace. We also make a point to use the latest and greatest\nversion of Cargo’s resolver algorithm in our workspace by setting the\n`resolver` value to `\"3\"`:\n\n<span class=\"filename\">Filename: Cargo.toml</span>\n\n```toml\n{{#include ../listings/ch14-more-about-cargo/no-listing-01-workspace/add/Cargo.toml}}\n```\n\nNext, we’ll create the `adder` binary crate by running `cargo new` within the\n_add_ directory:\n\n<!-- manual-regeneration\ncd listings/ch14-more-about-cargo/output-only-01-adder-crate/add\nremove `members = [\"adder\"]` from Cargo.toml\nrm -rf adder\ncargo new adder\ncopy output below\n-->\n\n```console\n$ cargo new adder\n     Created binary (application) `adder` package\n      Adding `adder` as member of workspace at `file:///projects/add`\n```",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch14-03-cargo-workspaces.md",
+          "page": "rust-book-ch14-03-cargo-workspaces",
+          "metadata": {
+            "page_id": "rust-book-ch14-03-cargo-workspaces",
+            "section": "Cargo Workspaces",
+            "unit_id": "rust-book-ch14-03-cargo-workspaces",
+            "headings": [],
+            "chapter_id": "ch14",
+            "block_types": [
+              "paragraph",
+              "code"
+            ],
+            "chunk_index": 3,
+            "location_id": "rust-book-ch14-03-cargo-workspaces",
+            "source_path": "starter/data/rust-book/src/ch14-03-cargo-workspaces.md",
+            "chapter_title": "More about Cargo and Crates.io",
+            "section_title": "Cargo Workspaces",
+            "content_sha256": "14ded080a82f9e087424fcdb7f681b5e28ccac7dfe5ff77b2c8bd4d3b761d12e",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 13778,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 988,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 2095,
+            "chunk_offset_start_chars": 1107,
+            "normalized_character_count": 13778
+          },
+          "score": 0.031746031746031744,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 3,
+          "lexical_rank": 3
+        },
+        {
+          "id": "paragraph-rust-book-ch14-03-cargo-workspaces-413-1105-56074e6dd144",
+          "text": "A _workspace_ is a set of packages that share the same _Cargo.lock_ and output\ndirectory. Let’s make a project using a workspace—we’ll use trivial code so\nthat we can concentrate on the structure of the workspace. There are multiple\nways to structure a workspace, so we'll just show one common way. We’ll have a\nworkspace containing a binary and two libraries. The binary, which will provide\nthe main functionality, will depend on the two libraries. One library will\nprovide an `add_one` function and the other library an `add_two` function.\nThese three crates will be part of the same workspace. We’ll start by creating\na new directory for the workspace:\n\n```console\n$ mkdir add\n$ cd add\n```",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch14-03-cargo-workspaces.md",
+          "page": "rust-book-ch14-03-cargo-workspaces",
+          "metadata": {
+            "page_id": "rust-book-ch14-03-cargo-workspaces",
+            "section": "Cargo Workspaces",
+            "unit_id": "rust-book-ch14-03-cargo-workspaces",
+            "headings": [],
+            "chapter_id": "ch14",
+            "block_types": [
+              "paragraph",
+              "code"
+            ],
+            "chunk_index": 2,
+            "location_id": "rust-book-ch14-03-cargo-workspaces",
+            "source_path": "starter/data/rust-book/src/ch14-03-cargo-workspaces.md",
+            "chapter_title": "More about Cargo and Crates.io",
+            "section_title": "Cargo Workspaces",
+            "content_sha256": "14ded080a82f9e087424fcdb7f681b5e28ccac7dfe5ff77b2c8bd4d3b761d12e",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 13778,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 692,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 1105,
+            "chunk_offset_start_chars": 413,
+            "normalized_character_count": 13778
+          },
+          "score": 0.0315136476426799,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 5,
+          "lexical_rank": 2
+        },
+        {
+          "id": "paragraph-rust-book-ch14-03-cargo-workspaces-0-411-b17b260df25a",
+          "text": "## Cargo Workspaces\n\nIn Chapter 12, we built a package that included a binary crate and a library\ncrate. As your project develops, you might find that the library crate\ncontinues to get bigger and you want to split your package further into\nmultiple library crates. Cargo offers a feature called _workspaces_ that can\nhelp manage multiple related packages that are developed in tandem.\n\n### Creating a Workspace",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch14-03-cargo-workspaces.md",
+          "page": "rust-book-ch14-03-cargo-workspaces",
+          "metadata": {
+            "page_id": "rust-book-ch14-03-cargo-workspaces",
+            "section": "Cargo Workspaces",
+            "unit_id": "rust-book-ch14-03-cargo-workspaces",
+            "headings": [
+              "Cargo Workspaces",
+              "Creating a Workspace"
+            ],
+            "chapter_id": "ch14",
+            "block_types": [
+              "heading_or_text",
+              "paragraph"
+            ],
+            "chunk_index": 1,
+            "location_id": "rust-book-ch14-03-cargo-workspaces",
+            "source_path": "starter/data/rust-book/src/ch14-03-cargo-workspaces.md",
+            "chapter_title": "More about Cargo and Crates.io",
+            "section_title": "Cargo Workspaces",
+            "content_sha256": "14ded080a82f9e087424fcdb7f681b5e28ccac7dfe5ff77b2c8bd4d3b761d12e",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 13778,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 411,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 411,
+            "chunk_offset_start_chars": 0,
+            "normalized_character_count": 13778
+          },
+          "score": 0.030834914611005692,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 2,
+          "lexical_rank": 8
+        },
+        {
+          "id": "paragraph-rust-book-ch14-03-cargo-workspaces-2625-3524-3d5a8713d279",
+          "text": "The workspace has one _target_ directory at the top level that the compiled\nartifacts will be placed into; the `adder` package doesn’t have its own\n_target_ directory. Even if we were to run `cargo build` from inside the\n_adder_ directory, the compiled artifacts would still end up in _add/target_\nrather than _add/adder/target_. Cargo structures the _target_ directory in a\nworkspace like this because the crates in a workspace are meant to depend on\neach other. If each crate had its own _target_ directory, each crate would have\nto recompile each of the other crates in the workspace to place the artifacts\nin its own _target_ directory. By sharing one _target_ directory, the crates\ncan avoid unnecessary rebuilding.\n\n### Creating the Second Package in the Workspace\n\nNext, let’s create another member package in the workspace and call it\n`add_one`. Generate a new library crate named `add_one`:",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch14-03-cargo-workspaces.md",
+          "page": "rust-book-ch14-03-cargo-workspaces",
+          "metadata": {
+            "page_id": "rust-book-ch14-03-cargo-workspaces",
+            "section": "Cargo Workspaces",
+            "unit_id": "rust-book-ch14-03-cargo-workspaces",
+            "headings": [
+              "Creating the Second Package in the Workspace"
+            ],
+            "chapter_id": "ch14",
+            "block_types": [
+              "paragraph",
+              "heading_or_text"
+            ],
+            "chunk_index": 5,
+            "location_id": "rust-book-ch14-03-cargo-workspaces",
+            "source_path": "starter/data/rust-book/src/ch14-03-cargo-workspaces.md",
+            "chapter_title": "More about Cargo and Crates.io",
+            "section_title": "Cargo Workspaces",
+            "content_sha256": "14ded080a82f9e087424fcdb7f681b5e28ccac7dfe5ff77b2c8bd4d3b761d12e",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 13778,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 899,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 3524,
+            "chunk_offset_start_chars": 2625,
+            "normalized_character_count": 13778
+          },
+          "score": 0.03055037313432836,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 4,
+          "lexical_rank": 7
+        }
+      ],
+      "context": "[paragraph-rust-book-ch14-03-cargo-workspaces-2097-2623-d04fe6714962 | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch14-03-cargo-workspaces.md | page rust-book-ch14-03-cargo-workspaces]\nRunning `cargo new` inside a workspace also automatically adds the newly created\npackage to the `members` key in the `[workspace]` definition in the workspace\n_Cargo.toml_, like this:\n\n```toml\n{{#include ../listings/ch14-more-about-cargo/output-only-01-adder-crate/add/Cargo.toml}}\n```\n\nAt this point, we can build the workspace by running `cargo build`. The files\nin your _add_ directory should look like this:\n\n```text\n├── Cargo.lock\n├── Cargo.toml\n├── adder\n│   ├── Cargo.toml\n│   └── src\n│       └── main.rs\n└── target\n```\n\n[paragraph-rust-book-ch14-03-cargo-workspaces-1107-2095-6d44931e1426 | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch14-03-cargo-workspaces.md | page rust-book-ch14-03-cargo-workspaces]\nNext, in the _add_ directory, we create the _Cargo.toml_ file that will\nconfigure the entire workspace. This file won’t have a `[package]` section.\nInstead, it will start with a `[workspace]` section that will allow us to add\nmembers to the workspace. We also make a point to use the latest and greatest\nversion of Cargo’s resolver algorithm in our workspace by setting the\n`resolver` value to `\"3\"`:\n\n<span class=\"filename\">Filename: Cargo.toml</span>\n\n```toml\n{{#include ../listings/ch14-more-about-cargo/no-listing-01-workspace/add/Cargo.toml}}\n```\n\nNext, we’ll create the `adder` binary crate by running `cargo new` within the\n_add_ directory:\n\n<!-- manual-regeneration\ncd listings/ch14-more-about-cargo/output-only-01-adder-crate/add\nremove `members = [\"adder\"]` from Cargo.toml\nrm -rf adder\ncargo new adder\ncopy output below\n-->\n\n```console\n$ cargo new adder\n     Created binary (application) `adder` package\n      Adding `adder` as member of workspace at `file:///projects/add`\n```\n\n[paragraph-rust-book-ch14-03-cargo-workspaces-413-1105-56074e6dd144 | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch14-03-cargo-workspaces.md | page rust-book-ch14-03-cargo-workspaces]\nA _workspace_ is a set of packages that share the same _Cargo.lock_ and output\ndirectory. Let’s make a project using a workspace—we’ll use trivial code so\nthat we can concentrate on the structure of the workspace. There are multiple\nways to structure a workspace, so we'll just show one common way. We’ll have a\nworkspace containing a binary and two libraries. The binary, which will provide\nthe main functionality, will depend on the two libraries. One library will\nprovide an `add_one` function and the other library an `add_two` function.\nThese three crates will be part of the same workspace. We’ll start by creating\na new directory for the workspace:\n\n```console\n$ mkdir add\n$ cd add\n```",
+      "context_ids": [
+        "paragraph-rust-book-ch14-03-cargo-workspaces-2097-2623-d04fe6714962",
+        "paragraph-rust-book-ch14-03-cargo-workspaces-1107-2095-6d44931e1426",
+        "paragraph-rust-book-ch14-03-cargo-workspaces-413-1105-56074e6dd144"
+      ]
+    },
+    {
+      "event": "answer"
+    }
+  ],
+  "model": "gemini-3.5-flash-lite",
+  "query_id": "Q21",
+  "split": "test",
+  "method": "hybrid",
+  "top_k": 5,
+  "context_budget_chars": 3200,
+  "max_searches": 2,
+  "elapsed_ms": 20248.92
+}

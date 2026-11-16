@@ -1,0 +1,137 @@
+{
+  "status": "abstain",
+  "answer": "Không đủ bằng chứng để trả lời.",
+  "citations": [],
+  "events": [
+    {
+      "event": "search",
+      "query": "Vietnam Rust job vacancies October 2026",
+      "filter": null,
+      "results": [
+        {
+          "id": "paragraph-rust-book-ch12-05-working-with-environment-variables-685-1397-916a1464430d",
+          "text": "We first add a new `search_case_insensitive` function to the `minigrep` library\nthat will be called when the environment variable has a value. We’ll continue\nto follow the TDD process, so the first step is again to write a failing test.\nWe’ll add a new test for the new `search_case_insensitive` function and rename\nour old test from `one_result` to `case_sensitive` to clarify the differences\nbetween the two tests, as shown in Listing 12-20.\n\n<Listing number=\"12-20\" file-name=\"src/lib.rs\" caption=\"Adding a new failing test for the case-insensitive function we’re about to add\">\n\n```rust,ignore,does_not_compile\n{{#rustdoc_include ../listings/ch12-an-io-project/listing-12-20/src/lib.rs:here}}\n```\n\n</Listing>",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch12-05-working-with-environment-variables.md",
+          "page": "rust-book-ch12-05-working-with-environment-variables",
+          "metadata": {
+            "page_id": "rust-book-ch12-05-working-with-environment-variables",
+            "section": "Working with Environment Variables",
+            "unit_id": "rust-book-ch12-05-working-with-environment-variables",
+            "headings": [],
+            "chapter_id": "ch12",
+            "block_types": [
+              "paragraph",
+              "code"
+            ],
+            "chunk_index": 2,
+            "location_id": "rust-book-ch12-05-working-with-environment-variables",
+            "source_path": "starter/data/rust-book/src/ch12-05-working-with-environment-variables.md",
+            "chapter_title": "An I/O Project: Building a Command Line Program",
+            "section_title": "Working with Environment Variables",
+            "content_sha256": "bb80a3191fcdcfad2cb50f6ed10b6e52784fb51da2f86a3758664d2a8f4292a2",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 9413,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 712,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 1397,
+            "chunk_offset_start_chars": 685,
+            "normalized_character_count": 9413
+          },
+          "score": 0.6143614649772644,
+          "strategy": "dense_pgvector_B"
+        },
+        {
+          "id": "paragraph-rust-book-ch21-03-graceful-shutdown-and-cleanup-10151-10502-f2787feaf3c6",
+          "text": "Well done! You’ve made it to the end of the book! We want to thank you for\njoining us on this tour of Rust. You’re now ready to implement your own Rust\nprojects and help with other people’s projects. Keep in mind that there is a\nwelcoming community of other Rustaceans who would love to help you with any\nchallenges you encounter on your Rust journey.",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch21-03-graceful-shutdown-and-cleanup.md",
+          "page": "rust-book-ch21-03-graceful-shutdown-and-cleanup",
+          "metadata": {
+            "page_id": "rust-book-ch21-03-graceful-shutdown-and-cleanup",
+            "section": "Graceful Shutdown and Cleanup",
+            "unit_id": "rust-book-ch21-03-graceful-shutdown-and-cleanup",
+            "headings": [],
+            "chapter_id": "ch21",
+            "block_types": [
+              "paragraph"
+            ],
+            "chunk_index": 14,
+            "location_id": "rust-book-ch21-03-graceful-shutdown-and-cleanup",
+            "source_path": "starter/data/rust-book/src/ch21-03-graceful-shutdown-and-cleanup.md",
+            "chapter_title": "Final Project: Building a Multithreaded Web Server",
+            "section_title": "Graceful Shutdown and Cleanup",
+            "content_sha256": "bfdc392620dfc0c126b9c2c22f1bdac4c75f78ccf8cf9e72955ef064844073bd",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 10433,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 351,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 10502,
+            "chunk_offset_start_chars": 10151,
+            "normalized_character_count": 10433
+          },
+          "score": 0.6038614691454612,
+          "strategy": "dense_pgvector_B"
+        },
+        {
+          "id": "paragraph-rust-book-ch17-02-concurrency-with-async-3457-4370-af52639618c3",
+          "text": "<Listing number=\"17-7\" caption=\"Using `await` with a join handle to run a task to completion\" file-name=\"src/main.rs\">\n\n```rust\n{{#rustdoc_include ../listings/ch17-async-await/listing-17-07/src/main.rs:handle}}\n```\n\n</Listing>\n\nThis updated version runs until _both_ loops finish:\n\n<!-- Not extracting output because changes to this output aren't significant;\nthe changes are likely to be due to the threads running differently rather than\nchanges in the compiler -->\n\n```text\nhi number 1 from the second task!\nhi number 1 from the first task!\nhi number 2 from the first task!\nhi number 2 from the second task!\nhi number 3 from the first task!\nhi number 3 from the second task!\nhi number 4 from the first task!\nhi number 4 from the second task!\nhi number 5 from the first task!\nhi number 6 from the first task!\nhi number 7 from the first task!\nhi number 8 from the first task!\nhi number 9 from the first task!\n```",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch17-02-concurrency-with-async.md",
+          "page": "rust-book-ch17-02-concurrency-with-async",
+          "metadata": {
+            "page_id": "rust-book-ch17-02-concurrency-with-async",
+            "section": "Applying Concurrency with Async",
+            "unit_id": "rust-book-ch17-02-concurrency-with-async",
+            "headings": [],
+            "chapter_id": "ch17",
+            "block_types": [
+              "paragraph",
+              "code"
+            ],
+            "chunk_index": 5,
+            "location_id": "rust-book-ch17-02-concurrency-with-async",
+            "source_path": "starter/data/rust-book/src/ch17-02-concurrency-with-async.md",
+            "chapter_title": "Fundamentals of Asynchronous Programming: Async, Await, Futures, and Streams",
+            "section_title": "Applying Concurrency with Async",
+            "content_sha256": "eda98e95d74ba3c471402432a2f1928df0a2574873944cbd78aa99dd05061249",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 19320,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 913,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 4370,
+            "chunk_offset_start_chars": 3457,
+            "normalized_character_count": 19320
+          },
+          "score": 0.6029625894405012,
+          "strategy": "dense_pgvector_B"
+        }
+      ],
+      "context": "[paragraph-rust-book-ch12-05-working-with-environment-variables-685-1397-916a1464430d | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch12-05-working-with-environment-variables.md | page rust-book-ch12-05-working-with-environment-variables]\nWe first add a new `search_case_insensitive` function to the `minigrep` library\nthat will be called when the environment variable has a value. We’ll continue\nto follow the TDD process, so the first step is again to write a failing test.\nWe’ll add a new test for the new `search_case_insensitive` function and rename\nour old test from `one_result` to `case_sensitive` to clarify the differences\nbetween the two tests, as shown in Listing 12-20.\n\n<Listing number=\"12-20\" file-name=\"src/lib.rs\" caption=\"Adding a new failing test for the case-insensitive function we’re about to add\">\n\n```rust,ignore,does_not_compile\n{{#rustdoc_include ../listings/ch12-an-io-project/listing-12-20/src/lib.rs:here}}\n```\n\n</Listing>\n\n[paragraph-rust-book-ch21-03-graceful-shutdown-and-cleanup-10151-10502-f2787feaf3c6 | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch21-03-graceful-shutdown-and-cleanup.md | page rust-book-ch21-03-graceful-shutdown-and-cleanup]\nWell done! You’ve made it to the end of the book! We want to thank you for\njoining us on this tour of Rust. You’re now ready to implement your own Rust\nprojects and help with other people’s projects. Keep in mind that there is a\nwelcoming community of other Rustaceans who would love to help you with any\nchallenges you encounter on your Rust journey.",
+      "context_ids": [
+        "paragraph-rust-book-ch12-05-working-with-environment-variables-685-1397-916a1464430d",
+        "paragraph-rust-book-ch21-03-graceful-shutdown-and-cleanup-10151-10502-f2787feaf3c6"
+      ]
+    },
+    {
+      "event": "invalid_or_missing_citations"
+    }
+  ],
+  "model": "gemini-3.5-flash-lite",
+  "query_id": "U04",
+  "split": "test",
+  "method": "dense",
+  "top_k": 3,
+  "context_budget_chars": 2400,
+  "max_searches": 2,
+  "elapsed_ms": 2610.85
+}

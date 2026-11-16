@@ -1,0 +1,15 @@
+{
+  "strategy": "tfidf",
+  "split": "dev",
+  "n": 20,
+  "hit1": 5,
+  "hit3": 11,
+  "context_hit": 8,
+  "hit1_rate": 0.25,
+  "hit3_rate": 0.55,
+  "context_evidence_rate": 0.4,
+  "avg_context_chars": 2114.6,
+  "median_ms": 4.23,
+  "service_cost_usd": 0,
+  "corpus": "Day 6 strategy B, 1,309 chunks, BAAI/bge-small-en-v1.5 (384d)"
+}

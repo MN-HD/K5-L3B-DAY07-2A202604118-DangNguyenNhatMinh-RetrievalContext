@@ -1,0 +1,224 @@
+{
+  "status": "answered",
+  "answer": "Function parameters, `let` statements, and `for` loops can only accept **irrefutable** patterns [paragraph-rust-book-ch19-02-refutability-568-1469-3877403f05e1].",
+  "citations": [
+    "paragraph-rust-book-ch19-02-refutability-568-1469-3877403f05e1"
+  ],
+  "events": [
+    {
+      "event": "search",
+      "query": "pattern types allowed in function parameters let statements for loops irrefutable refutable",
+      "filter": null,
+      "results": [
+        {
+          "id": "paragraph-rust-book-ch19-02-refutability-1471-2465-082f031d94ea",
+          "text": "Let’s look at an example of what happens when we try to use a refutable pattern\nwhere Rust requires an irrefutable pattern and vice versa. Listing 19-8 shows a\n`let` statement, but for the pattern, we’ve specified `Some(x)`, a refutable\npattern. As you might expect, this code will not compile.\n\n<Listing number=\"19-8\" caption=\"Attempting to use a refutable pattern with `let`\">\n\n```rust,ignore,does_not_compile\n{{#rustdoc_include ../listings/ch19-patterns-and-matching/listing-19-08/src/main.rs:here}}\n```\n\n</Listing>\n\nIf `some_option_value` were a `None` value, it would fail to match the pattern\n`Some(x)`, meaning the pattern is refutable. However, the `let` statement can\nonly accept an irrefutable pattern because there is nothing valid the code can\ndo with a `None` value. At compile time, Rust will complain that we’ve tried to\nuse a refutable pattern where an irrefutable pattern is required:\n\n```console\n{{#include ../listings/ch19-patterns-and-matching/listing-19-08/output.txt}}\n```",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch19-02-refutability.md",
+          "page": "rust-book-ch19-02-refutability",
+          "metadata": {
+            "page_id": "rust-book-ch19-02-refutability",
+            "section": "Refutability: Whether a Pattern Might Fail to Match",
+            "unit_id": "rust-book-ch19-02-refutability",
+            "headings": [],
+            "chapter_id": "ch19",
+            "block_types": [
+              "paragraph",
+              "code"
+            ],
+            "chunk_index": 3,
+            "location_id": "rust-book-ch19-02-refutability",
+            "source_path": "starter/data/rust-book/src/ch19-02-refutability.md",
+            "chapter_title": "Patterns and Matching",
+            "section_title": "Refutability: Whether a Pattern Might Fail to Match",
+            "content_sha256": "3a49a434317bae131e30d124aefa0d5316d759b186c82355d975c1ba3a64df0d",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 4327,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 994,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 2465,
+            "chunk_offset_start_chars": 1471,
+            "normalized_character_count": 4327
+          },
+          "score": 0.03252247488101534,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 2,
+          "lexical_rank": 1
+        },
+        {
+          "id": "paragraph-rust-book-ch19-02-refutability-568-1469-3877403f05e1",
+          "text": "Function parameters, `let` statements, and `for` loops can only accept\nirrefutable patterns because the program cannot do anything meaningful when\nvalues don’t match. The `if let` and `while let` expressions and the\n`let...else` statement accept refutable and irrefutable patterns, but the\ncompiler warns against irrefutable patterns because, by definition, they’re\nintended to handle possible failure: The functionality of a conditional is in\nits ability to perform differently depending on success or failure.\n\nIn general, you shouldn’t have to worry about the distinction between refutable\nand irrefutable patterns; however, you do need to be familiar with the concept\nof refutability so that you can respond when you see it in an error message. In\nthose cases, you’ll need to change either the pattern or the construct you’re\nusing the pattern with, depending on the intended behavior of the code.",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch19-02-refutability.md",
+          "page": "rust-book-ch19-02-refutability",
+          "metadata": {
+            "page_id": "rust-book-ch19-02-refutability",
+            "section": "Refutability: Whether a Pattern Might Fail to Match",
+            "unit_id": "rust-book-ch19-02-refutability",
+            "headings": [],
+            "chapter_id": "ch19",
+            "block_types": [
+              "paragraph"
+            ],
+            "chunk_index": 2,
+            "location_id": "rust-book-ch19-02-refutability",
+            "source_path": "starter/data/rust-book/src/ch19-02-refutability.md",
+            "chapter_title": "Patterns and Matching",
+            "section_title": "Refutability: Whether a Pattern Might Fail to Match",
+            "content_sha256": "3a49a434317bae131e30d124aefa0d5316d759b186c82355d975c1ba3a64df0d",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 4327,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 901,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 1469,
+            "chunk_offset_start_chars": 568,
+            "normalized_character_count": 4327
+          },
+          "score": 0.03252247488101534,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 1,
+          "lexical_rank": 2
+        },
+        {
+          "id": "paragraph-rust-book-ch19-02-refutability-2467-3425-adf956232565",
+          "text": "Because we didn’t cover (and couldn’t cover!) every valid value with the\npattern `Some(x)`, Rust rightfully produces a compiler error.\n\nIf we have a refutable pattern where an irrefutable pattern is needed, we can\nfix it by changing the code that uses the pattern: Instead of using `let`, we\ncan use `let...else`. Then, if the pattern doesn’t match, the code in the curly\nbrackets will handle the value. Listing 19-9 shows how to fix the code in\nListing 19-8.\n\n<Listing number=\"19-9\" caption=\"Using `let...else` and a block with refutable patterns instead of `let`\">\n\n```rust\n{{#rustdoc_include ../listings/ch19-patterns-and-matching/listing-19-09/src/main.rs:here}}\n```\n\n</Listing>\n\nWe’ve given the code an out! This code is perfectly valid, although it means we\ncannot use an irrefutable pattern without receiving a warning. If we give\n`let...else` a pattern that will always match, such as `x`, as shown in Listing\n19-10, the compiler will give a warning.",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch19-02-refutability.md",
+          "page": "rust-book-ch19-02-refutability",
+          "metadata": {
+            "page_id": "rust-book-ch19-02-refutability",
+            "section": "Refutability: Whether a Pattern Might Fail to Match",
+            "unit_id": "rust-book-ch19-02-refutability",
+            "headings": [],
+            "chapter_id": "ch19",
+            "block_types": [
+              "paragraph",
+              "code"
+            ],
+            "chunk_index": 4,
+            "location_id": "rust-book-ch19-02-refutability",
+            "source_path": "starter/data/rust-book/src/ch19-02-refutability.md",
+            "chapter_title": "Patterns and Matching",
+            "section_title": "Refutability: Whether a Pattern Might Fail to Match",
+            "content_sha256": "3a49a434317bae131e30d124aefa0d5316d759b186c82355d975c1ba3a64df0d",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 4327,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 958,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 3425,
+            "chunk_offset_start_chars": 2467,
+            "normalized_character_count": 4327
+          },
+          "score": 0.03149801587301587,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 3,
+          "lexical_rank": 4
+        },
+        {
+          "id": "paragraph-rust-book-ch19-02-refutability-3427-4349-ac31120cf586",
+          "text": "<Listing number=\"19-10\" caption=\"Attempting to use an irrefutable pattern with `let...else`\">\n\n```rust\n{{#rustdoc_include ../listings/ch19-patterns-and-matching/listing-19-10/src/main.rs:here}}\n```\n\n</Listing>\n\nRust complains that it doesn’t make sense to use `let...else` with an\nirrefutable pattern because the `else` will never be reached:\n\n```console\n{{#include ../listings/ch19-patterns-and-matching/listing-19-10/output.txt}}\n```\n\nFor this reason, match arms must use refutable patterns, except for the last\narm, which should match any remaining values with an irrefutable pattern. Rust\nallows us to use an irrefutable pattern in a `match` with only one arm, but\nthis syntax isn’t particularly useful and could be replaced with a simpler\n`let` statement.\n\nNow that you know where to use patterns and the difference between refutable\nand irrefutable patterns, let’s cover all the syntax we can use to create\npatterns.",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch19-02-refutability.md",
+          "page": "rust-book-ch19-02-refutability",
+          "metadata": {
+            "page_id": "rust-book-ch19-02-refutability",
+            "section": "Refutability: Whether a Pattern Might Fail to Match",
+            "unit_id": "rust-book-ch19-02-refutability",
+            "headings": [],
+            "chapter_id": "ch19",
+            "block_types": [
+              "paragraph",
+              "code"
+            ],
+            "chunk_index": 5,
+            "location_id": "rust-book-ch19-02-refutability",
+            "source_path": "starter/data/rust-book/src/ch19-02-refutability.md",
+            "chapter_title": "Patterns and Matching",
+            "section_title": "Refutability: Whether a Pattern Might Fail to Match",
+            "content_sha256": "3a49a434317bae131e30d124aefa0d5316d759b186c82355d975c1ba3a64df0d",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 4327,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 922,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 4349,
+            "chunk_offset_start_chars": 3427,
+            "normalized_character_count": 4327
+          },
+          "score": 0.030798389007344232,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 7,
+          "lexical_rank": 3
+        },
+        {
+          "id": "paragraph-rust-book-ch19-02-refutability-0-566-1a595d6efebe",
+          "text": "## Refutability: Whether a Pattern Might Fail to Match\n\nPatterns come in two forms: refutable and irrefutable. Patterns that will match\nfor any possible value passed are _irrefutable_. An example would be `x` in the\nstatement `let x = 5;` because `x` matches anything and therefore cannot fail\nto match. Patterns that can fail to match for some possible value are\n_refutable_. An example would be `Some(x)` in the expression `if let Some(x) =\na_value` because if the value in the `a_value` variable is `None` rather than\n`Some`, the `Some(x)` pattern will not match.",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch19-02-refutability.md",
+          "page": "rust-book-ch19-02-refutability",
+          "metadata": {
+            "page_id": "rust-book-ch19-02-refutability",
+            "section": "Refutability: Whether a Pattern Might Fail to Match",
+            "unit_id": "rust-book-ch19-02-refutability",
+            "headings": [
+              "Refutability: Whether a Pattern Might Fail to Match"
+            ],
+            "chapter_id": "ch19",
+            "block_types": [
+              "heading_or_text",
+              "paragraph"
+            ],
+            "chunk_index": 1,
+            "location_id": "rust-book-ch19-02-refutability",
+            "source_path": "starter/data/rust-book/src/ch19-02-refutability.md",
+            "chapter_title": "Patterns and Matching",
+            "section_title": "Refutability: Whether a Pattern Might Fail to Match",
+            "content_sha256": "3a49a434317bae131e30d124aefa0d5316d759b186c82355d975c1ba3a64df0d",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 4327,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 566,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 566,
+            "chunk_offset_start_chars": 0,
+            "normalized_character_count": 4327
+          },
+          "score": 0.030309988518943745,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 5,
+          "lexical_rank": 7
+        }
+      ],
+      "context": "[paragraph-rust-book-ch19-02-refutability-1471-2465-082f031d94ea | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch19-02-refutability.md | page rust-book-ch19-02-refutability]\nLet’s look at an example of what happens when we try to use a refutable pattern\nwhere Rust requires an irrefutable pattern and vice versa. Listing 19-8 shows a\n`let` statement, but for the pattern, we’ve specified `Some(x)`, a refutable\npattern. As you might expect, this code will not compile.\n\n<Listing number=\"19-8\" caption=\"Attempting to use a refutable pattern with `let`\">\n\n```rust,ignore,does_not_compile\n{{#rustdoc_include ../listings/ch19-patterns-and-matching/listing-19-08/src/main.rs:here}}\n```\n\n</Listing>\n\nIf `some_option_value` were a `None` value, it would fail to match the pattern\n`Some(x)`, meaning the pattern is refutable. However, the `let` statement can\nonly accept an irrefutable pattern because there is nothing valid the code can\ndo with a `None` value. At compile time, Rust will complain that we’ve tried to\nuse a refutable pattern where an irrefutable pattern is required:\n\n```console\n{{#include ../listings/ch19-patterns-and-matching/listing-19-08/output.txt}}\n```\n\n[paragraph-rust-book-ch19-02-refutability-568-1469-3877403f05e1 | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch19-02-refutability.md | page rust-book-ch19-02-refutability]\nFunction parameters, `let` statements, and `for` loops can only accept\nirrefutable patterns because the program cannot do anything meaningful when\nvalues don’t match. The `if let` and `while let` expressions and the\n`let...else` statement accept refutable and irrefutable patterns, but the\ncompiler warns against irrefutable patterns because, by definition, they’re\nintended to handle possible failure: The functionality of a conditional is in\nits ability to perform differently depending on success or failure.\n\nIn general, you shouldn’t have to worry about the distinction between refutable\nand irrefutable patterns; however, you do need to be familiar with the concept\nof refutability so that you can respond when you see it in an error message. In\nthose cases, you’ll need to change either the pattern or the construct you’re\nusing the pattern with, depending on the intended behavior of the code.\n\n[paragraph-rust-book-ch19-02-refutability-0-566-1a595d6efebe | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch19-02-refutability.md | page rust-book-ch19-02-refutability]\n## Refutability: Whether a Pattern Might Fail to Match\n\nPatterns come in two forms: refutable and irrefutable. Patterns that will match\nfor any possible value passed are _irrefutable_. An example would be `x` in the\nstatement `let x = 5;` because `x` matches anything and therefore cannot fail\nto match. Patterns that can fail to match for some possible value are\n_refutable_. An example would be `Some(x)` in the expression `if let Some(x) =\na_value` because if the value in the `a_value` variable is `None` rather than\n`Some`, the `Some(x)` pattern will not match.",
+      "context_ids": [
+        "paragraph-rust-book-ch19-02-refutability-1471-2465-082f031d94ea",
+        "paragraph-rust-book-ch19-02-refutability-568-1469-3877403f05e1",
+        "paragraph-rust-book-ch19-02-refutability-0-566-1a595d6efebe"
+      ]
+    },
+    {
+      "event": "answer"
+    }
+  ],
+  "model": "gemini-3.5-flash-lite",
+  "query_id": "Q24",
+  "split": "test",
+  "method": "hybrid",
+  "top_k": 5,
+  "context_budget_chars": 3200,
+  "max_searches": 2,
+  "elapsed_ms": 2968.83
+}

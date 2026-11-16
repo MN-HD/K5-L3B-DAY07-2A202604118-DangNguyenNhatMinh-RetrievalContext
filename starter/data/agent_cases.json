@@ -1,0 +1,34 @@
+[
+  {
+    "id": "U01",
+    "split": "dev",
+    "answerable": false,
+    "question": "What was the total worldwide number of active Rust developers in 2026?",
+    "expected_behavior": "search_and_abstain",
+    "absence_reason": "The corpus contains no 2026 worldwide developer-count statistics."
+  },
+  {
+    "id": "U02",
+    "split": "dev",
+    "answerable": false,
+    "question": "What was the average annual salary of a Rust developer in Hanoi in 2026?",
+    "expected_behavior": "search_and_abstain",
+    "absence_reason": "The corpus contains no current salary survey or Hanoi labor-market data."
+  },
+  {
+    "id": "U03",
+    "split": "test",
+    "answerable": false,
+    "question": "What is Rust's market share compared with Go in the 2026 programming-language rankings?",
+    "expected_behavior": "search_and_abstain",
+    "absence_reason": "The corpus contains no 2026 programming-language market-share ranking."
+  },
+  {
+    "id": "U04",
+    "split": "test",
+    "answerable": false,
+    "question": "How many job vacancies requiring Rust were posted in Vietnam during October 2026?",
+    "expected_behavior": "search_and_abstain",
+    "absence_reason": "The corpus contains no Vietnam job-posting dataset or October 2026 employment statistics."
+  }
+]

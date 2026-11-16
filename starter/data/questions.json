@@ -1,0 +1,342 @@
+[
+  {
+    "id": "Q01",
+    "split": "dev",
+    "question": "Within Chapter 3, what keyword lets a programmer change a variable after its initial binding?",
+    "expected_answer": "Add mut before the variable name to make the variable mutable.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch03-01-variables-and-mutability",
+        "evidence": "you can make them mutable by adding `mut` in front of the variable name"
+      }
+    ],
+    "filter": {
+      "chapter_id": "ch03"
+    }
+  },
+  {
+    "id": "Q02",
+    "split": "dev",
+    "question": "Why does Rust require the types of variables to be known during compilation?",
+    "expected_answer": "Rust is statically typed, so it must know the types of all variables at compile time. The compiler can often infer types from values and usage.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch03-02-data-types",
+        "evidence": "Keep in mind that Rust is a statically typed language, which means that it must know the types of all variables at compile time."
+      }
+    ]
+  },
+  {
+    "id": "Q03",
+    "split": "dev",
+    "question": "What naming convention does Rust conventionally use for functions and variables?",
+    "expected_answer": "Snake case: lowercase letters with underscores separating words.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch03-03-how-functions-work",
+        "evidence": "Rust code uses snake case as the conventional style for function and variable names, in which all letters are lowercase and underscores separate words."
+      }
+    ]
+  },
+  {
+    "id": "Q04",
+    "split": "dev",
+    "question": "What kind of value must an if expression condition produce in Rust?",
+    "expected_answer": "A Boolean value (bool). Rust does not automatically convert integers or other non-Boolean values into Booleans.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch03-05-control-flow",
+        "evidence": "You must be explicit and always provide `if` with a Boolean as its condition."
+      }
+    ]
+  },
+  {
+    "id": "Q05",
+    "split": "dev",
+    "question": "What are the three fundamental ownership rules in Rust?",
+    "expected_answer": "Each value has an owner; only one owner exists at a time; the value is dropped when its owner goes out of scope.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch04-01-what-is-ownership",
+        "evidence": "- Each value in Rust has an _owner_. - There can only be one owner at a time. - When the owner goes out of scope, the value will be dropped."
+      }
+    ]
+  },
+  {
+    "id": "Q06",
+    "split": "dev",
+    "question": "How can a Rust function access a String without taking ownership of that String?",
+    "expected_answer": "Pass a reference to the String, using &String in the function parameter and &value at the call site.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch04-02-references-and-borrowing",
+        "evidence": "These ampersands represent references, and they allow you to refer to some value without taking ownership of it."
+      }
+    ]
+  },
+  {
+    "id": "Q07",
+    "split": "dev",
+    "question": "What is one important advantage of structs over tuples when grouping related data?",
+    "expected_answer": "Structs name their fields, making the meaning of each value explicit and avoiding dependence on positional order when accessing fields.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch05-01-defining-structs",
+        "evidence": "Unlike with tuples, in a struct you’ll name each piece of data so it’s clear what the values mean."
+      }
+    ]
+  },
+  {
+    "id": "Q08",
+    "split": "dev",
+    "question": "Restricting the answer to Chapter 6, what does a match expression compare and what important guarantee does the compiler provide?",
+    "expected_answer": "It compares a value against a series of patterns and executes the code associated with a matching pattern. The compiler confirms that all possible cases are handled.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch06-02-match",
+        "evidence": "The power of `match` comes from the expressiveness of the patterns and the fact that the compiler confirms that all possible cases are handled."
+      }
+    ],
+    "filter": {
+      "chapter_id": "ch06"
+    }
+  },
+  {
+    "id": "Q09",
+    "split": "dev",
+    "question": "In Rust terminology, what is a crate?",
+    "expected_answer": "A crate is the smallest amount of code that the Rust compiler considers at one time.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch07-01-packages-and-crates",
+        "evidence": "A _crate_ is the smallest amount of code that the Rust compiler considers at a time."
+      }
+    ]
+  },
+  {
+    "id": "Q10",
+    "split": "dev",
+    "question": "Within Chapter 8, what two characteristics distinguish a Rust vector from a collection that permits heterogeneous element types?",
+    "expected_answer": "A vector stores elements next to each other in memory and all elements must have the same type.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch08-01-vectors",
+        "evidence": "Vectors allow you to store more than one value in a single data structure that puts all the values next to each other in memory. Vectors can only store values of the same type."
+      }
+    ],
+    "filter": {
+      "chapter_id": "ch08"
+    }
+  },
+  {
+    "id": "Q11",
+    "split": "dev",
+    "question": "What are the main properties of Rust's standard-library String type?",
+    "expected_answer": "String is a growable, mutable, owned, UTF-8 encoded string type.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch08-02-strings",
+        "evidence": "The `String` type, which is provided by Rust’s standard library rather than coded into the core language, is a growable, mutable, owned, UTF-8 encoded string type."
+      }
+    ]
+  },
+  {
+    "id": "Q12",
+    "split": "dev",
+    "question": "When is a HashMap more suitable than using a vector index to retrieve data?",
+    "expected_answer": "When data should be looked up using a key rather than a numeric or positional index.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch08-03-hash-maps",
+        "evidence": "Hash maps are useful when you want to look up data not by using an index, as you can with vectors, but by using a key that can be of any type."
+      }
+    ]
+  },
+  {
+    "id": "Q13",
+    "split": "dev",
+    "question": "In Rust's Result<T, E> type, what do the generic parameters T and E represent?",
+    "expected_answer": "T represents the success value inside Ok, while E represents the error value inside Err.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch09-02-recoverable-errors-with-result",
+        "evidence": "`T` represents the type of the value that will be returned in a success case within the `Ok` variant, and `E` represents the type of the error that will be returned in a failure case within the `Err` variant."
+      }
+    ]
+  },
+  {
+    "id": "Q14",
+    "split": "dev",
+    "question": "What does a Rust trait define, and why are trait bounds useful?",
+    "expected_answer": "A trait defines shared behavior that types can provide. Trait bounds specify that a generic type must support particular behavior.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch10-02-traits",
+        "evidence": "A trait defines the functionality a particular type has and can share with other types. We can use traits to define shared behavior in an abstract way. We can use trait bounds to specify that a generic type can be any type that has certain behavior."
+      }
+    ]
+  },
+  {
+    "id": "Q15",
+    "split": "dev",
+    "question": "What three actions do Rust test functions typically perform?",
+    "expected_answer": "Set up the required state, execute the code being tested, and assert that the results match expectations.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch11-01-writing-tests",
+        "evidence": "- Set up any needed data or state. - Run the code you want to test. - Assert that the results are what you expect."
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "split": "dev",
+    "question": "Which standard-library function allows a Rust program to read the command-line arguments supplied when it is launched, and what does it return?",
+    "expected_answer": "std::env::args returns an iterator over the command-line arguments passed to the program.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch12-01-accepting-command-line-arguments",
+        "evidence": "To enable `minigrep` to read the values of command line arguments we pass to it, we’ll need the `std::env::args` function provided in Rust’s standard library. This function returns an iterator of the command line arguments passed to `minigrep`."
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "split": "dev",
+    "question": "What capability distinguishes Rust closures from ordinary functions regarding variables in their surrounding scope?",
+    "expected_answer": "Closures can capture values from the scope in which they are defined, while ordinary functions do not capture their defining environment.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch13-01-closures",
+        "evidence": "Unlike functions, closures can capture values from the scope in which they’re defined."
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "split": "dev",
+    "question": "Restricting the answer to Chapter 13, why does merely constructing an iterator not immediately process its sequence?",
+    "expected_answer": "Rust iterators are lazy, meaning they have no effect until methods that consume the iterator are called.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch13-02-iterators",
+        "evidence": "In Rust, iterators are _lazy_, meaning they have no effect until you call methods that consume the iterator to use it up."
+      }
+    ],
+    "filter": {
+      "chapter_id": "ch13"
+    }
+  },
+  {
+    "id": "Q19",
+    "split": "dev",
+    "question": "When Rust stores a value in Box<T>, where is the actual value placed and what remains on the stack?",
+    "expected_answer": "The value is stored on the heap, while a pointer to that heap data remains on the stack.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch15-01-box",
+        "evidence": "_Boxes_ allow you to store data on the heap rather than the stack. What remains on the stack is the pointer to the heap data."
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "split": "dev",
+    "question": "What are the two halves of a Rust channel, and what event causes the channel to be considered closed?",
+    "expected_answer": "A channel has a transmitter and a receiver. It is closed when either half is dropped.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch16-02-message-passing",
+        "evidence": "A channel is said to be _closed_ if either the transmitter or receiver half is dropped."
+      }
+    ]
+  },
+  {
+    "id": "Q21",
+    "split": "test",
+    "question": "In a Cargo workspace, what do the member packages share?",
+    "expected_answer": "They share the same Cargo.lock file and output directory.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch14-03-cargo-workspaces",
+        "evidence": "A _workspace_ is a set of packages that share the same _Cargo.lock_ and output directory."
+      }
+    ],
+    "filter": {
+      "chapter_id": "ch14"
+    }
+  },
+  {
+    "id": "Q22",
+    "split": "test",
+    "question": "Where does RefCell enforce Rust's borrowing rules?",
+    "expected_answer": "RefCell enforces the borrowing rules at runtime rather than at compile time.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch15-05-interior-mutability",
+        "evidence": "With `RefCell<T>`, these invariants are enforced _at runtime_."
+      }
+    ]
+  },
+  {
+    "id": "Q23",
+    "split": "test",
+    "question": "What threading model does Rust's standard library use, and how are its threads mapped?",
+    "expected_answer": "It uses a 1:1 model: one operating-system thread for each language thread.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch16-01-threads",
+        "evidence": "The Rust standard library uses a _1:1_ model of thread implementation, whereby a program uses one operating system thread per one language thread."
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "split": "test",
+    "question": "Which pattern types are allowed in function parameters, let statements, and for loops?",
+    "expected_answer": "Only irrefutable patterns are allowed in those constructs.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch19-02-refutability",
+        "evidence": "Function parameters, `let` statements, and `for` loops can only accept irrefutable patterns"
+      }
+    ]
+  },
+  {
+    "id": "Q25",
+    "split": "test",
+    "question": "What is the central idea of metaprogramming as described in the Rust book's macros chapter?",
+    "expected_answer": "Metaprogramming means writing code that writes other code.",
+    "gold": [
+      {
+        "source_id": "rust-programming-language-book",
+        "page": "rust-book-ch20-05-macros",
+        "evidence": "macros are a way of writing code that writes other code, which is known as _metaprogramming_."
+      }
+    ]
+  }
+]

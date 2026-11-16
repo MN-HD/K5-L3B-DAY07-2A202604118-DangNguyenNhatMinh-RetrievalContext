@@ -1,0 +1,140 @@
+{
+  "status": "answered",
+  "answer": "Rust's standard library uses a 1:1 model of thread implementation, meaning a program uses one operating system thread per one language thread [paragraph-rust-book-ch16-01-threads-1328-2321-acda81619eda].",
+  "citations": [
+    "paragraph-rust-book-ch16-01-threads-1328-2321-acda81619eda"
+  ],
+  "events": [
+    {
+      "event": "search",
+      "query": "threading model standard library threads mapped",
+      "filter": null,
+      "results": [
+        {
+          "id": "paragraph-rust-book-ch17-00-async-await-910-1307-c65de7523ac0",
+          "text": "This chapter builds on Chapter 16’s use of threads for parallelism and\nconcurrency by introducing an alternative approach to writing code: Rust’s\nfutures, streams, and the `async` and `await` syntax that let us express how\noperations could be asynchronous, and the third-party crates that implement\nasynchronous runtimes: code that manages and coordinates the execution of\nasynchronous operations.",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch17-00-async-await.md",
+          "page": "rust-book-ch17-00-async-await",
+          "metadata": {
+            "page_id": "rust-book-ch17-00-async-await",
+            "section": "Fundamentals of Asynchronous Programming: Async, Await, Futures, and Streams",
+            "unit_id": "rust-book-ch17-00-async-await",
+            "headings": [],
+            "chapter_id": "ch17",
+            "block_types": [
+              "paragraph"
+            ],
+            "chunk_index": 2,
+            "location_id": "rust-book-ch17-00-async-await",
+            "source_path": "starter/data/rust-book/src/ch17-00-async-await.md",
+            "chapter_title": "Fundamentals of Asynchronous Programming: Async, Await, Futures, and Streams",
+            "section_title": "Fundamentals of Asynchronous Programming: Async, Await, Futures, and Streams",
+            "content_sha256": "04048f0d9767853ba455c30f331e7f23d0c60bf0fec0bab80d2fdd1bfcbad135",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 9610,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 397,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 1307,
+            "chunk_offset_start_chars": 910,
+            "normalized_character_count": 9610
+          },
+          "score": 0.7624904654925798,
+          "strategy": "dense_pgvector_B"
+        },
+        {
+          "id": "paragraph-rust-book-ch16-01-threads-1328-2321-acda81619eda",
+          "text": "Programming languages implement threads in a few different ways, and many\noperating systems provide an API the programming language can call for creating\nnew threads. The Rust standard library uses a _1:1_ model of thread\nimplementation, whereby a program uses one operating system thread per one\nlanguage thread. There are crates that implement other models of threading that\nmake different trade-offs to the 1:1 model. (Rust’s async system, which we will\nsee in the next chapter, provides another approach to concurrency as well.)\n\n### Creating a New Thread with `spawn`\n\nTo create a new thread, we call the `thread::spawn` function and pass it a\nclosure (we talked about closures in Chapter 13) containing the code we want to\nrun in the new thread. The example in Listing 16-1 prints some text from a main\nthread and other text from a new thread.\n\n<Listing number=\"16-1\" file-name=\"src/main.rs\" caption=\"Creating a new thread to print one thing while the main thread prints something else\">",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch16-01-threads.md",
+          "page": "rust-book-ch16-01-threads",
+          "metadata": {
+            "page_id": "rust-book-ch16-01-threads",
+            "section": "Using Threads to Run Code Simultaneously",
+            "unit_id": "rust-book-ch16-01-threads",
+            "headings": [
+              "Creating a New Thread with `spawn`"
+            ],
+            "chapter_id": "ch16",
+            "block_types": [
+              "paragraph",
+              "heading_or_text"
+            ],
+            "chunk_index": 3,
+            "location_id": "rust-book-ch16-01-threads",
+            "source_path": "starter/data/rust-book/src/ch16-01-threads.md",
+            "chapter_title": "Fearless Concurrency",
+            "section_title": "Using Threads to Run Code Simultaneously",
+            "content_sha256": "b3c09d1a242c16930ddd160a2b66a1a9246406c7f2bd959db8f57ebcdf189e31",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 12381,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 993,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 2321,
+            "chunk_offset_start_chars": 1328,
+            "normalized_character_count": 12381
+          },
+          "score": 0.7467457803043271,
+          "strategy": "dense_pgvector_B"
+        },
+        {
+          "id": "paragraph-rust-book-ch16-04-extensible-concurrency-sync-and-send-4423-5116-bcfac4ec1fbd",
+          "text": "The Rust standard library provides channels for message passing and smart\npointer types, such as `Mutex<T>` and `Arc<T>`, that are safe to use in\nconcurrent contexts. The type system and the borrow checker ensure that the\ncode using these solutions won’t end up with data races or invalid references.\nOnce you get your code to compile, you can rest assured that it will happily\nrun on multiple threads without the kinds of hard-to-track-down bugs common in\nother languages. Concurrent programming is no longer a concept to be afraid of:\nGo forth and make your programs concurrent, fearlessly!\n\n[shared-access]: ch16-03-shared-state.html#shared-access-to-mutext\n[nomicon]: ../nomicon/index.html",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch16-04-extensible-concurrency-sync-and-send.md",
+          "page": "rust-book-ch16-04-extensible-concurrency-sync-and-send",
+          "metadata": {
+            "page_id": "rust-book-ch16-04-extensible-concurrency-sync-and-send",
+            "section": "Extensible Concurrency with `Send` and `Sync`",
+            "unit_id": "rust-book-ch16-04-extensible-concurrency-sync-and-send",
+            "headings": [],
+            "chapter_id": "ch16",
+            "block_types": [
+              "paragraph"
+            ],
+            "chunk_index": 6,
+            "location_id": "rust-book-ch16-04-extensible-concurrency-sync-and-send",
+            "source_path": "starter/data/rust-book/src/ch16-04-extensible-concurrency-sync-and-send.md",
+            "chapter_title": "Fearless Concurrency",
+            "section_title": "Extensible Concurrency with `Send` and `Sync`",
+            "content_sha256": "84bc45e71ab93c4f89519a2d0983d069f5a2e62d89cf252779a194a7c74351d5",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 5093,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 693,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 5116,
+            "chunk_offset_start_chars": 4423,
+            "normalized_character_count": 5093
+          },
+          "score": 0.742909983223083,
+          "strategy": "dense_pgvector_B"
+        }
+      ],
+      "context": "[paragraph-rust-book-ch17-00-async-await-910-1307-c65de7523ac0 | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch17-00-async-await.md | page rust-book-ch17-00-async-await]\nThis chapter builds on Chapter 16’s use of threads for parallelism and\nconcurrency by introducing an alternative approach to writing code: Rust’s\nfutures, streams, and the `async` and `await` syntax that let us express how\noperations could be asynchronous, and the third-party crates that implement\nasynchronous runtimes: code that manages and coordinates the execution of\nasynchronous operations.\n\n[paragraph-rust-book-ch16-01-threads-1328-2321-acda81619eda | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch16-01-threads.md | page rust-book-ch16-01-threads]\nProgramming languages implement threads in a few different ways, and many\noperating systems provide an API the programming language can call for creating\nnew threads. The Rust standard library uses a _1:1_ model of thread\nimplementation, whereby a program uses one operating system thread per one\nlanguage thread. There are crates that implement other models of threading that\nmake different trade-offs to the 1:1 model. (Rust’s async system, which we will\nsee in the next chapter, provides another approach to concurrency as well.)\n\n### Creating a New Thread with `spawn`\n\nTo create a new thread, we call the `thread::spawn` function and pass it a\nclosure (we talked about closures in Chapter 13) containing the code we want to\nrun in the new thread. The example in Listing 16-1 prints some text from a main\nthread and other text from a new thread.\n\n<Listing number=\"16-1\" file-name=\"src/main.rs\" caption=\"Creating a new thread to print one thing while the main thread prints something else\">",
+      "context_ids": [
+        "paragraph-rust-book-ch17-00-async-await-910-1307-c65de7523ac0",
+        "paragraph-rust-book-ch16-01-threads-1328-2321-acda81619eda"
+      ]
+    },
+    {
+      "event": "answer"
+    }
+  ],
+  "model": "gemini-3.5-flash-lite",
+  "query_id": "Q23",
+  "split": "test",
+  "method": "dense",
+  "top_k": 3,
+  "context_budget_chars": 2400,
+  "max_searches": 2,
+  "elapsed_ms": 2794.63
+}

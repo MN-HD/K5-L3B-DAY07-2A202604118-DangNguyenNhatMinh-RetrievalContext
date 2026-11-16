@@ -1,0 +1,216 @@
+{
+  "status": "abstain",
+  "answer": "Không đủ bằng chứng để trả lời.",
+  "citations": [],
+  "events": [
+    {
+      "event": "search",
+      "query": "Rust market share Go 2026 programming language rankings",
+      "filter": null,
+      "results": [
+        {
+          "id": "paragraph-rust-book-ch16-00-concurrency-1831-2604-2f13b7469424",
+          "text": "Many languages are dogmatic about the solutions they offer for handling\nconcurrent problems. For example, Erlang has elegant functionality for\nmessage-passing concurrency but has only obscure ways to share state between\nthreads. Supporting only a subset of possible solutions is a reasonable\nstrategy for higher-level languages because a higher-level language promises\nbenefits from giving up some control to gain abstractions. However, lower-level\nlanguages are expected to provide the solution with the best performance in any\ngiven situation and have fewer abstractions over the hardware. Therefore, Rust\noffers a variety of tools for modeling problems in whatever way is appropriate\nfor your situation and requirements.\n\nHere are the topics we’ll cover in this chapter:",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch16-00-concurrency.md",
+          "page": "rust-book-ch16-00-concurrency",
+          "metadata": {
+            "page_id": "rust-book-ch16-00-concurrency",
+            "section": "Fearless Concurrency",
+            "unit_id": "rust-book-ch16-00-concurrency",
+            "headings": [],
+            "chapter_id": "ch16",
+            "block_types": [
+              "paragraph"
+            ],
+            "chunk_index": 4,
+            "location_id": "rust-book-ch16-00-concurrency",
+            "source_path": "starter/data/rust-book/src/ch16-00-concurrency.md",
+            "chapter_title": "Fearless Concurrency",
+            "section_title": "Fearless Concurrency",
+            "content_sha256": "34b8f139ad56f69f364461c9bbdf593d4cf41bd72f3097a7b2ca531e0d1d6dbd",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 2983,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 773,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 2604,
+            "chunk_offset_start_chars": 1831,
+            "normalized_character_count": 2983
+          },
+          "score": 0.02938045560996381,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 1,
+          "lexical_rank": 17
+        },
+        {
+          "id": "paragraph-rust-book-ch20-01-unsafe-rust-14873-15866-25817c95b3db",
+          "text": "Sometimes your Rust code might need to interact with code written in another\nlanguage. For this, Rust has the keyword `extern` that facilitates the creation\nand use of a _Foreign Function Interface (FFI)_, which is a way for a\nprogramming language to define functions and enable a different (foreign)\nprogramming language to call those functions.\n\nListing 20-8 demonstrates how to set up an integration with the `abs` function\nfrom the C standard library. Functions declared within `extern` blocks are\ngenerally unsafe to call from Rust code, so `extern` blocks must also be marked\n`unsafe`. The reason is that other languages don’t enforce Rust’s rules and\nguarantees, and Rust can’t check them, so responsibility falls on the\nprogrammer to ensure safety.\n\n<Listing number=\"20-8\" file-name=\"src/main.rs\" caption=\"Declaring and calling an `extern` function defined in another language\">\n\n```rust\n{{#rustdoc_include ../listings/ch20-advanced-features/listing-20-08/src/main.rs}}\n```\n\n</Listing>",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch20-01-unsafe-rust.md",
+          "page": "rust-book-ch20-01-unsafe-rust",
+          "metadata": {
+            "page_id": "rust-book-ch20-01-unsafe-rust",
+            "section": "Unsafe Rust",
+            "unit_id": "rust-book-ch20-01-unsafe-rust",
+            "headings": [],
+            "chapter_id": "ch20",
+            "block_types": [
+              "paragraph",
+              "code"
+            ],
+            "chunk_index": 18,
+            "location_id": "rust-book-ch20-01-unsafe-rust",
+            "source_path": "starter/data/rust-book/src/ch20-01-unsafe-rust.md",
+            "chapter_title": "Advanced Features",
+            "section_title": "Unsafe Rust",
+            "content_sha256": "a8bc2f91613b6f35665c6e46dce7dffda54eb16f85504533428ad413b8a35780",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 27833,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 993,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 15866,
+            "chunk_offset_start_chars": 14873,
+            "normalized_character_count": 27833
+          },
+          "score": 0.01639344262295082,
+          "strategy": "hybrid_rrf",
+          "lexical_rank": 1
+        },
+        {
+          "id": "paragraph-rust-book-ch16-02-message-passing-0-976-d10ba5d72fc6",
+          "text": "<!-- Old headings. Do not remove or links may break. -->\n\n<a id=\"using-message-passing-to-transfer-data-between-threads\"></a>\n\n## Transfer Data Between Threads with Message Passing\n\nOne increasingly popular approach to ensuring safe concurrency is message\npassing, where threads or actors communicate by sending each other messages\ncontaining data. Here’s the idea in a slogan from [the Go language documentation](https://golang.org/doc/effective_go.html#concurrency):\n“Do not communicate by sharing memory; instead, share memory by communicating.”\n\nTo accomplish message-sending concurrency, Rust’s standard library provides an\nimplementation of channels. A _channel_ is a general programming concept by\nwhich data is sent from one thread to another.\n\nYou can imagine a channel in programming as being like a directional channel of\nwater, such as a stream or a river. If you put something like a rubber duck\ninto a river, it will travel downstream to the end of the waterway.",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch16-02-message-passing.md",
+          "page": "rust-book-ch16-02-message-passing",
+          "metadata": {
+            "page_id": "rust-book-ch16-02-message-passing",
+            "section": "Transfer Data Between Threads with Message Passing",
+            "unit_id": "rust-book-ch16-02-message-passing",
+            "headings": [
+              "Transfer Data Between Threads with Message Passing"
+            ],
+            "chapter_id": "ch16",
+            "block_types": [
+              "paragraph",
+              "heading_or_text"
+            ],
+            "chunk_index": 1,
+            "location_id": "rust-book-ch16-02-message-passing",
+            "source_path": "starter/data/rust-book/src/ch16-02-message-passing.md",
+            "chapter_title": "Fearless Concurrency",
+            "section_title": "Transfer Data Between Threads with Message Passing",
+            "content_sha256": "4708a506883184aefe1665a5f5ad6fcc038322b38b91634b4f1bb20855669469",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 11707,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 976,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 976,
+            "chunk_offset_start_chars": 0,
+            "normalized_character_count": 11707
+          },
+          "score": 0.016129032258064516,
+          "strategy": "hybrid_rrf",
+          "lexical_rank": 2
+        },
+        {
+          "id": "paragraph-rust-book-ch17-01-futures-and-syntax-2414-3190-90ef11525fc9",
+          "text": "To keep the focus of this chapter on learning async rather than juggling parts\nof the ecosystem, we’ve created the `trpl` crate (`trpl` is short for “The Rust\nProgramming Language”). It re-exports all the types, traits, and functions\nyou’ll need, primarily from the [`futures`][futures-crate]<!-- ignore --> and\n[`tokio`][tokio]<!-- ignore --> crates. The `futures` crate is an official home\nfor Rust experimentation for async code, and it’s actually where the `Future`\ntrait was originally designed. Tokio is the most widely used async runtime in\nRust today, especially for web applications. There are other great runtimes out\nthere, and they may be more suitable for your purposes. We use the `tokio`\ncrate under the hood for `trpl` because it’s well tested and widely used.",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch17-01-futures-and-syntax.md",
+          "page": "rust-book-ch17-01-futures-and-syntax",
+          "metadata": {
+            "page_id": "rust-book-ch17-01-futures-and-syntax",
+            "section": "Futures and the Async Syntax",
+            "unit_id": "rust-book-ch17-01-futures-and-syntax",
+            "headings": [],
+            "chapter_id": "ch17",
+            "block_types": [
+              "paragraph"
+            ],
+            "chunk_index": 4,
+            "location_id": "rust-book-ch17-01-futures-and-syntax",
+            "source_path": "starter/data/rust-book/src/ch17-01-futures-and-syntax.md",
+            "chapter_title": "Fundamentals of Asynchronous Programming: Async, Await, Futures, and Streams",
+            "section_title": "Futures and the Async Syntax",
+            "content_sha256": "9c2d94e3352ac86d2189ca56344fc3f04a1ab0b08b2abff51adf2d065efc7e16",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 19606,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 776,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 3190,
+            "chunk_offset_start_chars": 2414,
+            "normalized_character_count": 19606
+          },
+          "score": 0.016129032258064516,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 2
+        },
+        {
+          "id": "paragraph-rust-book-ch15-06-reference-cycles-15854-15981-cd61c14befde",
+          "text": "Next, we’ll talk about concurrency in Rust. You’ll even learn about a few new\nsmart pointers.\n\n[nomicon]: ../nomicon/index.html",
+          "source_id": "rust-programming-language-book",
+          "source": "https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch15-06-reference-cycles.md",
+          "page": "rust-book-ch15-06-reference-cycles",
+          "metadata": {
+            "page_id": "rust-book-ch15-06-reference-cycles",
+            "section": "Reference Cycles Can Leak Memory",
+            "unit_id": "rust-book-ch15-06-reference-cycles",
+            "headings": [],
+            "chapter_id": "ch15",
+            "block_types": [
+              "paragraph"
+            ],
+            "chunk_index": 20,
+            "location_id": "rust-book-ch15-06-reference-cycles",
+            "source_path": "starter/data/rust-book/src/ch15-06-reference-cycles.md",
+            "chapter_title": "Smart Pointers",
+            "section_title": "Reference Cycles Can Leak Memory",
+            "content_sha256": "49a3b417f53336e36910c2ec21ad4ff523cae4cf8f45098fe4f138df1a3cde31",
+            "document_title": "The Rust Programming Language",
+            "snapshot_commit": "2771df165f092a4fbb9f46b5b2e7450f19010adb",
+            "offset_end_chars": 15908,
+            "chunking_strategy": "paragraph",
+            "offset_start_chars": 0,
+            "chunk_character_count": 127,
+            "license_or_permission": "MIT OR Apache-2.0. The source repository includes LICENSE-MIT and LICENSE-APACHE. Retain both license files and follow the applicable license terms.",
+            "chunk_offset_end_chars": 15981,
+            "chunk_offset_start_chars": 15854,
+            "normalized_character_count": 15908
+          },
+          "score": 0.015873015873015872,
+          "strategy": "hybrid_rrf",
+          "dense_rank": 3
+        }
+      ],
+      "context": "[paragraph-rust-book-ch16-00-concurrency-1831-2604-2f13b7469424 | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch16-00-concurrency.md | page rust-book-ch16-00-concurrency]\nMany languages are dogmatic about the solutions they offer for handling\nconcurrent problems. For example, Erlang has elegant functionality for\nmessage-passing concurrency but has only obscure ways to share state between\nthreads. Supporting only a subset of possible solutions is a reasonable\nstrategy for higher-level languages because a higher-level language promises\nbenefits from giving up some control to gain abstractions. However, lower-level\nlanguages are expected to provide the solution with the best performance in any\ngiven situation and have fewer abstractions over the hardware. Therefore, Rust\noffers a variety of tools for modeling problems in whatever way is appropriate\nfor your situation and requirements.\n\nHere are the topics we’ll cover in this chapter:\n\n[paragraph-rust-book-ch20-01-unsafe-rust-14873-15866-25817c95b3db | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch20-01-unsafe-rust.md | page rust-book-ch20-01-unsafe-rust]\nSometimes your Rust code might need to interact with code written in another\nlanguage. For this, Rust has the keyword `extern` that facilitates the creation\nand use of a _Foreign Function Interface (FFI)_, which is a way for a\nprogramming language to define functions and enable a different (foreign)\nprogramming language to call those functions.\n\nListing 20-8 demonstrates how to set up an integration with the `abs` function\nfrom the C standard library. Functions declared within `extern` blocks are\ngenerally unsafe to call from Rust code, so `extern` blocks must also be marked\n`unsafe`. The reason is that other languages don’t enforce Rust’s rules and\nguarantees, and Rust can’t check them, so responsibility falls on the\nprogrammer to ensure safety.\n\n<Listing number=\"20-8\" file-name=\"src/main.rs\" caption=\"Declaring and calling an `extern` function defined in another language\">\n\n```rust\n{{#rustdoc_include ../listings/ch20-advanced-features/listing-20-08/src/main.rs}}\n```\n\n</Listing>\n\n[paragraph-rust-book-ch15-06-reference-cycles-15854-15981-cd61c14befde | https://github.com/rust-lang/book/blob/2771df165f092a4fbb9f46b5b2e7450f19010adb/src/ch15-06-reference-cycles.md | page rust-book-ch15-06-reference-cycles]\nNext, we’ll talk about concurrency in Rust. You’ll even learn about a few new\nsmart pointers.\n\n[nomicon]: ../nomicon/index.html",
+      "context_ids": [
+        "paragraph-rust-book-ch16-00-concurrency-1831-2604-2f13b7469424",
+        "paragraph-rust-book-ch20-01-unsafe-rust-14873-15866-25817c95b3db",
+        "paragraph-rust-book-ch15-06-reference-cycles-15854-15981-cd61c14befde"
+      ]
+    },
+    {
+      "event": "invalid_or_missing_citations"
+    }
+  ],
+  "model": "gemini-3.5-flash-lite",
+  "query_id": "U03",
+  "split": "test",
+  "method": "hybrid",
+  "top_k": 5,
+  "context_budget_chars": 3200,
+  "max_searches": 2,
+  "elapsed_ms": 4305.66
+}

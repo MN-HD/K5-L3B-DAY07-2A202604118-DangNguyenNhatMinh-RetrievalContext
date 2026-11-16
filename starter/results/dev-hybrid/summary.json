@@ -1,0 +1,15 @@
+{
+  "strategy": "hybrid",
+  "split": "dev",
+  "n": 20,
+  "hit1": 7,
+  "hit3": 13,
+  "context_hit": 12,
+  "hit1_rate": 0.35,
+  "hit3_rate": 0.65,
+  "context_evidence_rate": 0.6,
+  "avg_context_chars": 2087.5,
+  "median_ms": 27.07,
+  "service_cost_usd": 0,
+  "corpus": "Day 6 strategy B, 1,309 chunks, BAAI/bge-small-en-v1.5 (384d)"
+}

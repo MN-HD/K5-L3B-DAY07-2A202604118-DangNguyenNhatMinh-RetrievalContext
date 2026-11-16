@@ -1,0 +1,15 @@
+{
+  "strategy": "dense",
+  "split": "test",
+  "n": 5,
+  "hit1": 3,
+  "hit3": 3,
+  "context_hit": 3,
+  "hit1_rate": 0.6,
+  "hit3_rate": 0.6,
+  "context_evidence_rate": 0.6,
+  "avg_context_chars": 2036.8,
+  "median_ms": 24.5,
+  "service_cost_usd": 0,
+  "corpus": "Day 6 strategy B, 1,309 chunks, BAAI/bge-small-en-v1.5 (384d)"
+}
