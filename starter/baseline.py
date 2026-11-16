@@ -54,7 +54,7 @@ def normalize_evidence_text(value):
     # while benchmark evidence quotes may contain the same words without markup.
     # Strip only paired emphasis delimiters at word boundaries; keep identifiers
     # such as snake_case and inline-code contents intact.
-    text = re.sub(r'(?<!\\w)(\\*\\*|__|\\*|_)(.+?)\\1(?!\\w)', r'\\2', text, flags=re.DOTALL)
+    text = re.sub(r'(?<!\w)(\*\*|__|\*|_)(.+?)\1(?!\w)', r'\2', text, flags=re.DOTALL)
     return ' '.join(text.split())
 
 
