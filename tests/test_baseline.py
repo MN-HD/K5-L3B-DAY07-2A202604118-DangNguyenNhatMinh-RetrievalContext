@@ -44,6 +44,15 @@ class BaselineTests(unittest.TestCase):
                  'evidence': 'You can make them mutable by adding `mut` in front of the variable name'}]
         self.assertTrue(hit(wrapped, gold))
 
+    def test_evidence_matches_without_markdown_emphasis(self):
+        wrapped = chunk(
+            'formatted',
+            'Keep in mind that Rust is a _statically typed_ language, which means that it\\nmust know the types of all variables at compile time.'
+        )
+        gold = [{'source_id': 'doc', 'page': 1,
+                 'evidence': 'Keep in mind that Rust is a statically typed language, which means that it must know the types of all variables at compile time.'}]
+        self.assertTrue(hit(wrapped, gold))
+
     def test_budget_dedup_and_empty_query(self):
         context, ids = pack_context([self.chunks[0], self.chunks[0]], 800)
         self.assertEqual(ids, ['a'])
