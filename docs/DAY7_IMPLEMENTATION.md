@@ -30,15 +30,24 @@ Generated local files are under `starter/data/` and are ignored by Git by defaul
 
 The three methods are: dense pgvector cosine search, TF-IDF lexical search, and hybrid Reciprocal Rank Fusion (RRF). Results and per-query traces are saved to `starter/results/`. Review at least two dev errors and select a configuration before any test run.
 
-## 4. Run test after selecting a configuration
+## 4. Run two improvement configurations on dev
+
+```powershell
+& $py starter/run_improvement_experiments.py --split dev
+```
+
+This compares dense top-5 with a 3,200-character context and hybrid RRF top-5 with the same context budget. It records two hypotheses and the same Hit@1/Evidence Hit@3/Context Evidence Rate metrics. Compare these results with the top-3/2,400-character baseline in `starter/results/dev-*`, then select a configuration using dev only.
+
+## 5. Run test after selecting a configuration
 
 ```powershell
 & $py starter/day7_pipeline.py benchmark --split test
+& $py starter/run_improvement_experiments.py --split test --selected hybrid_top5_context3200
 ```
 
-The test split is five new answerable questions. The four unanswerable agent cases are in `starter/data/agent_cases.json`.
+Replace `hybrid_top5_context3200` with `dense_top5_context3200` if that is the configuration selected on dev. The second command evaluates only the chosen configuration. The test split is five new answerable questions. The four unanswerable agent cases are in `starter/data/agent_cases.json`.
 
-## 5. Real agent
+## 6. Real agent
 
 The Gemini controller uses the Gemini Developer API function-calling interface and bounded HTTP timeouts. It tries the configured model and, once if it gets HTTP 503, a distinct fallback model. A 503 is a provider availability error, not an invalid key. Set `GEMINI_MODEL` and optionally `GEMINI_FALLBACK_MODEL` in the local Day 7 `.env`. Never commit the key.
 
@@ -49,7 +58,7 @@ The Gemini controller uses the Gemini Developer API function-calling interface a
 
 Check the resulting trace under `starter/results/agent-runs/`. Citation IDs must be read and manually verified against their cited text; ID membership alone does not prove grounding.
 
-## 6. Tests
+## 7. Tests
 
 ```powershell
 & $py -X utf8 -m unittest discover -s tests -v
