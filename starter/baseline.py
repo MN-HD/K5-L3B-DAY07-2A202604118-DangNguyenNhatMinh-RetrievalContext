@@ -48,8 +48,14 @@ def validate(chunks, questions):
 
 
 def normalize_evidence_text(value):
-    """Normalize Unicode and whitespace so Markdown line wrapping is harmless."""
-    return ' '.join(unicodedata.normalize('NFKC', str(value)).split())
+    """Normalize Unicode, Markdown emphasis and whitespace for evidence matching."""
+    text = unicodedata.normalize('NFKC', str(value))
+    # Day 6 source chunks preserve Markdown (for example, _statically typed_),
+    # while benchmark evidence quotes may contain the same words without markup.
+    # Strip only paired emphasis delimiters at word boundaries; keep identifiers
+    # such as snake_case and inline-code contents intact.
+    text = re.sub(r'(?<!\\w)(\\*\\*|__|\\*|_)(.+?)\\1(?!\\w)', r'\\2', text, flags=re.DOTALL)
+    return ' '.join(text.split())
 
 
 def hit(chunk, gold):
