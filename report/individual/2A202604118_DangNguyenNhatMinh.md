@@ -100,6 +100,20 @@ The live agent was evaluated on all seven held-out test cases using `gemini-3.5-
 
 All ten answer citations (five per configuration) were inspected against the actual passage text. Citation support: **10/10**. Answer citation coverage: **10/10**. Both agents correctly abstained on **2/2** unanswerable questions. The dense Q21 answer receives only 1/2 because its cited example is suggestive but does not state the general sharing rule; hybrid Q21 is fully supported by the direct definition.
 
+### Per-question human review and citation audit
+
+| Test ID | Dense grade | Dense citation review | Hybrid grade | Hybrid citation review |
+|---|---:|---|---:|---|
+| Q21 | 1/2 | Workspace file-tree example indirectly shows root `Cargo.lock` and `target`; it does not explicitly state the package-sharing definition. | 2/2 | Directly cites the definition that workspace packages share the same `Cargo.lock` and output directory. |
+| Q22 | 2/2 | Directly supports runtime borrowing-rule enforcement and panic on violation. | 2/2 | Directly supports runtime enforcement and panic behavior. |
+| Q23 | 2/2 | Directly supports one OS thread per language thread. | 2/2 | Directly supports the 1:1 thread model. |
+| Q24 | 2/2 | Directly supports irrefutable patterns for function parameters, `let`, and `for`. | 2/2 | Directly supports the same rule. |
+| Q25 | 2/2 | Directly defines macros as code that writes code and supports the added explanation. | 2/2 | Directly defines metaprogramming as code that writes code. |
+| U03 | Correct abstention | No citation and no unsupported market-share claim. | Correct abstention | No citation and no unsupported market-share claim. |
+| U04 | Correct abstention | No citation and no unsupported job-vacancy claim. | Correct abstention | No citation and no unsupported job-vacancy claim. |
+
+All ten answer citations (five for each configuration) were checked against the exact cited passage text. Citation support is **10/10**; answer citation coverage is **10/10**. Both agents correctly abstained on **2/2** unanswerable test cases. Dense Q21 is only partially complete (1/2); hybrid Q21 is fully supported (2/2).
+
 The five answerable responses from each configuration were manually compared with the benchmark expected answers and their cited source passages. Q22 identifies runtime borrowing-rule enforcement; Q23 identifies Rust's 1:1 operating-system-thread model; Q24 identifies irrefutable patterns; and Q25 defines metaprogramming as code that writes code. Hybrid Q21 directly cites the definition that workspace packages share the same `Cargo.lock` and output directory. Dense Q21 cites a workspace file-tree example showing one root `Cargo.lock` and `target` directory, but does not explicitly state the package-sharing rule; it therefore receives a partial answer grade of 1 rather than 2. Both configurations abstained on U03 and U04.
 
 **Observed aggregate (test cases):**
@@ -124,7 +138,11 @@ Run from the repository root in PowerShell, with the Day 6 virtual environment:
 ```powershell
 $py = "$HOME\Documents\K5-L3B-DAY06-DangNguyenNhatMinh-2A202604118-DataIngestion\starter\.venv\Scripts\python.exe"
 
-# Prepare is already complete; rerun only if local generated files are missing.
+# Recreate ignored local chunks.json from the Day 6 PostgreSQL index when needed.
+# Requires the Day 6 database running and DATABASE_URL configured in Day 6 starter/.env.
+& $py starter\day7_pipeline.py prepare
+
+# Unit tests and recorded benchmark commands
 & $py -X utf8 -m unittest discover -s tests -v
 & $py starter\day7_pipeline.py benchmark --split dev
 & $py starter\run_improvement_experiments.py --split dev
