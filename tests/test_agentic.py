@@ -33,9 +33,21 @@ class AgentTests(unittest.TestCase):
             self.assertEqual(run_agent('q', c, Retriever(rows))['status'], 'abstain')
 
     def test_search_limit_is_enforced(self):
-        c = Controller([{'action':'search','query':'one'}, {'action':'search','query':'two'}, {'action':'search','query':'three'}])
+        c = Controller([{'action':'search','query':'one'}, {'action':'search','query':'two'},
+                        {'action':'search','query':'three'}, {'action':'search','query':'four'}])
         r = Retriever([CHUNK]); result = run_agent('q', c, r, max_searches=2)
-        self.assertEqual(result['status'], 'abstain'); self.assertEqual(len(r.calls), 2)
+        self.assertEqual(result['status'], 'abstain')
+        self.assertEqual(len(r.calls), 2)
+        self.assertIn('search_limit', [e['event'] for e in result['events']])
+
+    def test_final_answer_is_allowed_after_search_limit(self):
+        c = Controller([{'action':'search','query':'one'}, {'action':'search','query':'two'},
+                        {'action':'search','query':'three'},
+                        {'action':'answer','answer':'7 days [c1]','citations':['c1']}])
+        r = Retriever([CHUNK]); result = run_agent('q', c, r, max_searches=2)
+        self.assertEqual(result['status'], 'answered')
+        self.assertEqual(len(r.calls), 2)
+        self.assertIn('search_limit_reached', [e['event'] for e in result['events']])
 
     def test_context_budget_across_multiple_searches(self):
         other = {**CHUNK, 'id': 'c2', 'text': 'Một đoạn bằng chứng khác.'}
