@@ -47,8 +47,19 @@ def validate(chunks, questions):
                 raise ValueError(f"question {q['id']}: gold không nằm trọn trong chunk đúng nguồn/trang")
 
 
+def normalize_evidence_text(value):
+    """Normalize Unicode and whitespace so Markdown line wrapping is harmless."""
+    return ' '.join(unicodedata.normalize('NFKC', str(value)).split())
+
+
 def hit(chunk, gold):
-    return any(chunk['source_id'] == g['source_id'] and chunk['page'] == g['page'] and g['evidence'] in chunk['text'] for g in gold)
+    chunk_text = normalize_evidence_text(chunk['text'])
+    return any(
+        chunk['source_id'] == g['source_id']
+        and str(chunk['page']) == str(g['page'])
+        and normalize_evidence_text(g['evidence']) in chunk_text
+        for g in gold
+    )
 
 
 class TfidfIndex:
