@@ -39,7 +39,7 @@ class BaselineTests(unittest.TestCase):
             validate(self.chunks, [{**self.q, 'gold': [wrong]}])
 
     def test_evidence_matches_across_markdown_line_wraps(self):
-        wrapped = chunk('wrapped', 'You can make them mutable by\\nadding `mut` in front of the variable name.')
+        wrapped = chunk('wrapped', 'You can make them mutable by\nadding `mut` in front of the variable name.')
         gold = [{'source_id': 'doc', 'page': 1,
                  'evidence': 'you can make them mutable by adding `mut` in front of the variable name'}]
         self.assertTrue(hit(wrapped, gold))
